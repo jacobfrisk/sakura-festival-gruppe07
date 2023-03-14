@@ -160,12 +160,15 @@ svg {
 /* main-container til content */
 .main-container {
   padding-inline: var(--medium);
-  max-width: 1600px;
+  max-width: 1200px;
   margin-inline: auto;
 }
 
 /* Alle animationer skal ind i den her media query. Den gør at det kun er folk der har slået animationer til i deres styresystem kan se dem*/
 @media (prefers-reduced-motion: no-preference) {
+  .event-img {
+    transform: none;
+  }
 }
 
 /* event info flex container */
