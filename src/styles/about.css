@@ -2,11 +2,19 @@ img {
   width: 500px;
   border-radius: 10px;
   box-shadow: 0px 0px 15px 5px rgba(245, 200, 220, 1);
+  margin-block: var(--medium);
 }
 
 h1 {
   padding-top: var(--medium);
   padding-bottom: var(--large);
+  color: var(--red);
+}
+
+a {
+  font-family: "heading-font";
+  font-size: var(--p-font-size);
+  text-align: center;
 }
 
 .a-links {
@@ -17,15 +25,19 @@ h1 {
   padding-block: var(--large);
 }
 
-@media (min-width: 750px) {
+@media (min-width: 800px) {
   h1 {
     padding-top: var(--large);
     padding-bottom: var(--extra-large);
   }
 
+  img {
+    margin: 0;
+  }
+
   .about_grid {
     display: grid;
-    gap: var(--large);
+    gap: var(--extra-large);
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
   }
