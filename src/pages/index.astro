@@ -13,6 +13,18 @@ const options = {
 
 const response = await fetch(url, options);
 const data = await response.json();
+const main = [];
+const second = [];
+const lawn = [];
+data.forEach((element) => {
+  if (element.location === "Main stage") {
+    main.push(element);
+  } else if (element.location === "Second stage") {
+    second.push(element);
+  } else {
+    lawn.push(element);
+  }
+});
 ---
 
 <html lang="en">
@@ -28,7 +40,7 @@ const data = await response.json();
     <title>Astro</title>
   </head>
   <body>
-    <div class="test">
+    <!-- <div class="test">
       <h1>Sakura Festival</h1>
       <h2>Sakura Festival</h2>
       <h3>Sakura Festival</h3>
@@ -37,8 +49,33 @@ const data = await response.json();
         laudantium eaque, quos sed non. Sequi omnis repudiandae aperiam animi hic aut voluptatibus recusandae?
       </p>
       <a href="#">Click here to read more</a>
+    </div> -->
+    <a href="/booths">booths</a>
+
+    <div class="main">
+      {
+        main.map((stage) => {
+          return <p>{stage.name}</p>;
+        })
+      }
+    </div>
+    <div class="second">
+      {
+        second.map((stage) => {
+          return <p>{stage.name}</p>;
+        })
+      }
+    </div>
+    <div class="lawn">
+      {lawn.map((stage) => <p>{stage.name}</p>)}
     </div>
   </body>
+
+  <style>
+    body {
+      display: flex;
+    }
+  </style>
 
 
 </html>

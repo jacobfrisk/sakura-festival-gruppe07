@@ -1,0 +1,47 @@
+---
+---
+
+<h1>Filter nav</h1>
+
+<button class="active" data-filter="Restaurant">Restaurant</button>
+<button data-filter="Shops">Shops</button>
+<button data-filter="Café">Café</button>
+<button data-filter="All">All</button>
+
+<script>
+  let filter = "Restaurant";
+  doFiltering();
+  document.querySelectorAll("button").forEach((btn) => {
+    btn.addEventListener("click", btnClick);
+  });
+
+  function btnClick(evt) {
+    filter = evt.target.dataset.filter;
+    console.log(filter);
+    doFiltering();
+    document.querySelectorAll("button").forEach((btn) => {
+      if (btn.dataset.filter === filter) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+  }
+
+  function doFiltering() {
+    document.querySelectorAll("article").forEach((element) => {
+      console.log(element.classList.contains(filter));
+      if (element.classList.contains(filter) === true || filter === "All") {
+        element.classList.remove("hide");
+      } else {
+        element.classList.add("hide");
+      }
+    });
+  }
+</script>
+
+<style>
+  .active {
+    background-color: red;
+  }
+</style>
