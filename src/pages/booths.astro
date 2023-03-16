@@ -1,0 +1,102 @@
+---
+import "../styles/style.css";
+import "../styles/booths.css";
+import { Debug } from "astro/components";
+import Filternav from "../components/Filternav.astro";
+
+const url =
+  "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Booths?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
+
+const options = {
+  headers: {
+    apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To",
+  },
+};
+
+const response = await fetch(url, options);
+const data = await response.json();
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Astro</title>
+  </head>
+
+  <details>
+    <summary>Debugger</summary>
+    <Debug {data} />
+  </details>
+  <header></header>
+  <main>
+    <Filternav />
+
+    {
+      data.map((stage) => {
+        return (
+          <article class={stage.Kategori}>
+            <h2>{stage.Navn}</h2>
+            <p>{stage.Kategori}</p>
+          </article>
+        );
+      })
+    }
+
+    <!-- <h1 class="h1_booths">Booths</h1>
+    <p class="booths_p">Selfish <em class="dot"> •</em> Banzai <em class="dot"> •</em> Saito <em class="dot"> •</em> Sushi Shop</p>
+    <br />
+    <p class="booths_p">Sticks'n'Sushi <em class="dot"> •</em>Mochi Time CPH <em class="dot"> •</em> Enghave Motor <em class="dot"> •</em> De Japanske Haver <em class="dot"> •</em> NIWA <em class="dot"> •</em> Wazakka Tento-ya</p>
+    <br />
+    <p class="booths_p">
+      Flourish I/S <em class="dot"> •</em> Dansk Japansk Selskab <em class="dot"> •</em> Yakult <em class="dot"> •</em> WakuWaku <em class="dot"> •</em> KROMKendama <em class="dot"> •</em> Animerch <em class="dot"> •</em> Andersen Bakery
+    </p>
+    <br />
+    <p class="booths_p">
+      Hizokko <em class="dot"> •</em> Bambus Danmark <em class="dot"> •</em> Japan Specialisten <em class="dot"> •</em> Kitamoto Tomizo <em class="dot"> •</em> Seidokan <em class="dot"> •</em> CuteCans <em class="dot"> •</em> Nihonjinkai <em
+        class="dot"
+      >
+        •</em
+      > Oni
+    </p>
+    <br />
+    <p class="booths_p">JLGC London <em class="dot"> •</em> Mochi Copenhagen <em class="dot"> •</em> Popteria Rainbow Island <em class="dot"> •</em> Sing Tehus <em class="dot"> •</em> Foreningen Japanske Haver</p>
+    <br />
+    <p class="booths_p">Naxos Denmark <em class="dot"> •</em>Shiki Bonsai Danmark <em class="dot"> •</em> Kaatsu Fitness <em class="dot"> •</em> Fantask</p><br />
+    <p class="booths_p">Koibi <em class="dot"> •</em> Faraos Cigarer <em class="dot"> •</em> Idrætshøjskolen Bosei</p>
+
+    <h1 class="h1_booths">Map</h1> -->
+  </main>
+  <footer></footer>
+
+  <style>
+    .dot {
+      margin: 0 0.6em 0 0.6em;
+    }
+
+    .booths_p {
+      text-align: center;
+      margin: auto;
+      color: #af253e;
+    }
+
+    .h1_booths {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      margin-top: 3rem;
+      color: #af253e;
+    }
+
+    p {
+      max-width: 100ch;
+    }
+
+    .hide {
+      display: none;
+    }
+  </style>
+
+
+</html>
