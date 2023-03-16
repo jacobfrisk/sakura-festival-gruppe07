@@ -15,18 +15,6 @@ const options = {
 
 const response = await fetch(url, options);
 const data = await response.json();
-const main = [];
-const second = [];
-const lawn = [];
-data.forEach((element) => {
-  if (element.location === "Main stage") {
-    main.push(element);
-  } else if (element.location === "Second stage") {
-    second.push(element);
-  } else {
-    lawn.push(element);
-  }
-});
 ---
 
 <html lang="en">
@@ -60,24 +48,6 @@ data.forEach((element) => {
           <TimeSlot />
           <hr />
         </div>
-      </div>
-      <a href="/booths">booths</a>
-      <div class="main">
-        {
-          main.map((stage) => {
-            return <p>{stage.name}</p>;
-          })
-        }
-      </div>
-      <div class="second">
-        {
-          second.map((stage) => {
-            return <p>{stage.name}</p>;
-          })
-        }
-      </div>
-      <div class="lawn">
-        {lawn.map((stage) => <p>{stage.name}</p>)}
       </div>
     </div>
   </body>
