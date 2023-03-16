@@ -111,7 +111,9 @@ ul {
   --h1-font-size: clamp(2rem, 1.5146rem + 2.0712vw, 4rem);
   --h2-font-size: clamp(1.5rem, 1.0146rem + 2.0712vw, 3.5rem);
   --h3-font-size: clamp(1.25rem, 0.918rem + 1.4164vw, 2.6rem);
+  --h4-font-size: clamp(1rem, 0.6706rem + 1.5059vw, 1.6rem);
   --p-font-size: clamp(0.9rem, 0.9697rem + 0.1294vw, 1.125rem);
+  --psmall-font-size: clamp(0.7rem, 0.4353rem + 0.7529vw, 1rem);
   --menu-links-font-size: clamp(2.6rem, 2.2311rem + 1.5738vw, 4.1rem);
 
   /* Spacing */
@@ -126,7 +128,8 @@ ul {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: "heading-font";
 }
 
@@ -140,6 +143,10 @@ h2 {
 
 h3 {
   font-size: var(--h3-font-size);
+}
+
+h4 {
+  font-size: var(--h4-font-size);
 }
 
 p {
