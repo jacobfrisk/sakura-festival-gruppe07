@@ -1,0 +1,67 @@
+---
+import "../styles/style.css";
+---
+<hr>
+<footer>
+    <div>
+        <h4>Contact</h4>
+        <p>phone: (+45) 3345 5121</p>
+        <p>fax: (+45) 3311 3377</p>
+        <p>email: info.cph@ch.mofa.go.jp</p>
+    </div>
+    <div>
+        <div class="some-links">
+            <a href="https://www.instagram.com/copenhagensakurafestival/">
+                <img class="some-icon" src="../public/icons/instagram.svg" alt="instagram">
+            </a>
+            <a href="https://www.facebook.com/copenhagensakurafestival">
+                <img class="some-icon" src="../public/icons/facebook.svg" alt="facebook">
+            </a>
+        </div>
+        <div class="p-right">
+            <p>phone: (+45) 3345 5121</p>
+            <p>fax: (+45) 3311 3377</p>
+            <p>email: info.cph@ch.mofa.go.jp</p>
+        </div>
+    </div>
+</footer>
+
+<style>
+    footer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--medium);
+    padding-inline: var(--medium);
+    max-width: 1200px;
+    margin-inline: auto;
+    }
+
+    .some-links {
+        display: flex;
+        gap: auto;
+        justify-content: flex-end;
+        padding-bottom: var(--small);
+    }
+
+    .some-icon {
+        height: 30px;
+        padding-left: var(--extra-small);
+    }
+
+    .p-right {
+        text-align: right;
+    }
+
+    hr {
+        color: var(--red);
+        margin-bottom:var(--medium);
+    }
+
+    p {
+        font-size: var(--psmall-font-size);
+    }
+
+    h4 {
+        padding-bottom: var(--small);
+    }
+</style>

@@ -1,4 +1,4 @@
-img {
+.about-img {
   width: 500px;
   border-radius: 10px;
   box-shadow: 0px 0px 15px 5px var(--pink);
@@ -22,7 +22,7 @@ a {
   flex-direction: column;
   align-items: center;
   gap: var(--small);
-  padding-block: var(--large);
+  padding-block: var(--extra-large);
 }
 
 @media (min-width: 800px) {
@@ -31,8 +31,8 @@ a {
     padding-bottom: var(--extra-large);
   }
 
-  img {
-    margin: 0;
+  .about-img {
+    margin-block: auto;
   }
 
   .about_grid {
