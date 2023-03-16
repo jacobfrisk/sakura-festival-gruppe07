@@ -102,10 +102,11 @@ ul {
 
 :root {
   /* Farver */
-  --red: #af253e;
-  --pink: #f5c8dc;
-  --black: #151723;
-  --white: #fdfbfe;
+  --red: hsl(349, 65%, 42%);
+  --pink: #f5c7dc;
+  --black: hsl(231, 25%, 11%);
+  --white: hsl(280, 60%, 99%);
+  --card-bg: hsl(340, 15%, 92%);
 
   /* Skriftstørrelser */
   --h1-font-size: clamp(2rem, 1.5146rem + 2.0712vw, 4rem);
@@ -167,8 +168,9 @@ svg {
 
 /* Alle animationer skal ind i den her media query. Den gør at det kun er folk der har slået animationer til i deres styresystem kan se dem*/
 @media (prefers-reduced-motion: no-preference) {
-  .event-img {
-    transform: none;
+  .event-img.hidden {
+    opacity: 0;
+    transform: scale(0.8);
   }
 }
 
