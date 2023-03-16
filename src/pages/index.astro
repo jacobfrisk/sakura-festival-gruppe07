@@ -1,6 +1,8 @@
 ---
 import "../styles/style.css";
 import { Debug } from "astro/components";
+import LocationSlot from "../components/LocationSlot.astro";
+import TimeSlot from "../components/TimeSlot.astro";
 
 const url =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -43,8 +45,21 @@ data.forEach((element) => {
     <div class="main-container">
       <div class="hero-grid">
         <h1>Sakura Festival</h1>
-        <video class="hero-video" autoplay loop src="/video/hero-video.webm"></video>
+        <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
         <p>Experience the magic of japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
+      </div>
+
+      <div class="schedule-container">
+        <div class="schedule-left">
+          <h2>Schedule</h2>
+          <h2>Saturday</h2>
+        </div>
+        <div class="schedule-right">
+          <h3>Wadaiko</h3>
+          <LocationSlot />
+          <TimeSlot />
+          <hr />
+        </div>
       </div>
       <a href="/booths">booths</a>
       <div class="main">
@@ -69,7 +84,24 @@ data.forEach((element) => {
 
   <style>
     .hero-video {
+      mask: url("img/svg-video-mask.svg") no-repeat center / contain;
       -webkit-mask: url("img/svg-video-mask.svg") no-repeat center / contain;
+    }
+
+    .hero-grid > * {
+      margin-bottom: var(--large);
+    }
+
+    .schedule-left h2 {
+      margin-bottom: var(--medium);
+    }
+
+    .schedule-right h3 {
+      margin-bottom: var(--small);
+    }
+
+    hr {
+      margin-top: var(--small);
     }
   </style>
 

@@ -144,6 +144,7 @@ h2 {
 
 h3 {
   font-size: var(--h3-font-size);
+  color: var(--red);
 }
 
 h4 {
@@ -165,6 +166,11 @@ button {
 svg {
   height: auto;
   width: clamp(1.25rem, 1.0983rem + 0.6472vw, 1.875rem);
+}
+
+/* streg styling */
+hr {
+  border-top: 0.1px solid var(--red);
 }
 /* main-container til content */
 .main-container {
