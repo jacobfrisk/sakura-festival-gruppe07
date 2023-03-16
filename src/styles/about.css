@@ -1,7 +1,7 @@
 img {
   width: 500px;
   border-radius: 10px;
-  box-shadow: 0px 0px 15px 5px rgba(245, 200, 220, 1);
+  box-shadow: 0px 0px 15px 5px var(--pink);
   margin-block: var(--medium);
 }
 
