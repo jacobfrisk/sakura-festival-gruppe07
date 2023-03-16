@@ -27,7 +27,7 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   font: inherit;
-  background-color: #fdfbfe;
+  background-color: var(--white);
 }
 
 /* 6. Improve media defaults */

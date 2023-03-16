@@ -40,40 +40,36 @@ data.forEach((element) => {
     <title>Astro</title>
   </head>
   <body>
-    <!-- <div class="test">
-      <h1>Sakura Festival</h1>
-      <h2>Sakura Festival</h2>
-      <h3>Sakura Festival</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora, accusamus error et quisquam eligendi iure odio molestiae quaerat quo earum. Libero, iusto molestias eveniet aperiam recusandae placeat! Dolor molestiae omnis molestias, totam adipisci dolore rem qui
-        laudantium eaque, quos sed non. Sequi omnis repudiandae aperiam animi hic aut voluptatibus recusandae?
-      </p>
-      <a href="#">Click here to read more</a>
-    </div> -->
-    <a href="/booths">booths</a>
-
-    <div class="main">
-      {
-        main.map((stage) => {
-          return <p>{stage.name}</p>;
-        })
-      }
-    </div>
-    <div class="second">
-      {
-        second.map((stage) => {
-          return <p>{stage.name}</p>;
-        })
-      }
-    </div>
-    <div class="lawn">
-      {lawn.map((stage) => <p>{stage.name}</p>)}
+    <div class="main-container">
+      <div class="hero-grid">
+        <h1>Sakura Festival</h1>
+        <video class="hero-video" autoplay loop src="/video/hero-video.webm"></video>
+        <p>Experience the magic of japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
+      </div>
+      <a href="/booths">booths</a>
+      <div class="main">
+        {
+          main.map((stage) => {
+            return <p>{stage.name}</p>;
+          })
+        }
+      </div>
+      <div class="second">
+        {
+          second.map((stage) => {
+            return <p>{stage.name}</p>;
+          })
+        }
+      </div>
+      <div class="lawn">
+        {lawn.map((stage) => <p>{stage.name}</p>)}
+      </div>
     </div>
   </body>
 
   <style>
-    body {
-      display: flex;
+    .hero-video {
+      mask: url("img/svg-video-mask.svg") no-repeat center / contain;
     }
   </style>
 
