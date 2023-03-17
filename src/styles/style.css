@@ -17,6 +17,7 @@
 html,
 body {
   height: 100%;
+  scroll-behavior: smooth;
 }
 
 /* Typographic tweaks!
@@ -102,7 +103,7 @@ ul {
 
 :root {
   /* Farver */
-  --red: hsl(349, 65%, 42%);
+  --red: rgb(177, 37, 63);
   --pink: #f5c7dc;
   --black: hsl(231, 25%, 11%);
   --white: hsl(280, 60%, 99%);
@@ -185,11 +186,12 @@ hr {
     opacity: 0;
     transform: scale(0.8);
   }
-}
-
-/* event info flex container */
-.event-info-flex {
-  display: flex;
-  place-items: center;
-  gap: var(--small);
+  @keyframes banner-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 }

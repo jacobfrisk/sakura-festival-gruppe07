@@ -1,8 +1,7 @@
 ---
 import "../styles/style.css";
 import { Debug } from "astro/components";
-import LocationSlot from "../components/LocationSlot.astro";
-import TimeSlot from "../components/TimeSlot.astro";
+import EventSlot from "../components/EventSlot.astro";
 
 const url =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -31,26 +30,80 @@ const data = await response.json();
   </head>
   <body>
     <div class="main-container">
-      <div class="hero-grid">
-        <h1>Sakura Festival</h1>
-        <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
-        <p>Experience the magic of japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
-      </div>
-
-      <div class="schedule-container">
-        <div class="schedule-left">
-          <h2>Schedule</h2>
-          <h2>Saturday</h2>
-        </div>
-        <div class="schedule-right">
-          <h3>Wadaiko</h3>
-          <LocationSlot />
-          <TimeSlot />
-          <hr />
+      <div class="hero-section">
+        <div class="hero-grid">
+          <h1>Sakura Festival</h1>
+          <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
+          <p>Experience the magic of Japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
         </div>
       </div>
     </div>
+    <div class="banner-wrapper">
+      <div class="banner-content">
+        <p>FREE ENTRANCE &#x2022;</p>
+        <p>LANGELINIE PARKEN &#x2022;</p>
+        <p>22/4 - 23/4 &#x2022;</p>
+        <p>11.00 - 16.00 &#x2022;</p>
+        <p>FREE ENTRANCE &#x2022;</p>
+        <p>LANGELINIE PARKEN &#x2022;</p>
+        <p>22/4 - 23/4 &#x2022;</p>
+        <p>11.00 - 16.00 &#x2022;</p>
+        <p>FREE ENTRANCE &#x2022;</p>
+        <p>LANGELINIE PARKEN &#x2022;</p>
+        <p>22/4 - 23/4 &#x2022;</p>
+        <p>11.00 - 16.00 &#x2022;</p>
+        <p>FREE ENTRANCE &#x2022;</p>
+        <p>LANGELINIE PARKEN &#x2022;</p>
+        <p>22/4 - 23/4 &#x2022;</p>
+        <p>11.00 - 16.00 &#x2022;</p>
+        <p>FREE ENTRANCE &#x2022;</p>
+        <p>LANGELINIE PARKEN &#x2022;</p>
+        <p>22/4 - 23/4 &#x2022;</p>
+        <p>11.00 - 16.00 &#x2022;</p>
+        <p>FREE ENTRANCE &#x2022;</p>
+        <p>LANGELINIE PARKEN &#x2022;</p>
+        <p>22/4 - 23/4 &#x2022;</p>
+        <p>11.00 - 16.00 &#x2022;</p>
+        <p>FREE ENTRANCE &#x2022;</p>
+        <p>LANGELINIE PARKEN &#x2022;</p>
+        <p>22/4 - 23/4 &#x2022;</p>
+        <p>11.00 - 16.00 &#x2022;</p>
+        <p>FREE ENTRANCE &#x2022;</p>
+        <p>LANGELINIE PARKEN &#x2022;</p>
+        <p>22/4 - 23/4 &#x2022;</p>
+        <p>11.00 - 16.00 &#x2022;</p>
+      </div>
+    </div>
   </body>
+  <h2 class="schedule-header">Schedule</h2>
+  <div class="schedule-container">
+    <div class="schedule-left">
+      <a href="#saturday">Saturday</a>
+      <a href="#sunday">Sunday</a>
+    </div>
+    <div class="schedule-right">
+      <div>
+        <section id="saturday">
+          <h4>Saturday</h4>
+          {
+            data
+              .sort((a, b) => parseInt(a.time) - parseInt(b.time))
+              .filter((stage) => stage.day === "Saturday")
+              .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} />)
+          }
+        </section>
+        <section id="sunday">
+          <h4>Sunday</h4>
+          {
+            data
+              .sort((a, b) => parseInt(a.time) - parseInt(b.time))
+              .filter((stage) => stage.day === "Sunday")
+              .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} />)
+          }
+        </section>
+      </div>
+    </div>
+  </div>
 
   <style>
     .hero-video {
@@ -62,16 +115,145 @@ const data = await response.json();
       margin-bottom: var(--large);
     }
 
-    .schedule-left h2 {
-      margin-bottom: var(--medium);
+    .schedule-left {
+      background-color: var(--red);
+      padding-block: var(--small);
+      position: sticky;
+      top: 0;
+      display: flex;
+      /* padding-block: var(--large); */
+
+      gap: 4rem;
     }
 
-    .schedule-right h3 {
-      margin-bottom: var(--small);
+    .schedule-left h2 {
+      margin-block: var(--small);
+      font-size: var(--menu-links-font-size);
+      text-align: center;
+      color: var(--white);
     }
 
     hr {
       margin-top: var(--small);
+    }
+
+    section h4 {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: var(--h3-font-size);
+    }
+
+    a {
+      padding: var(--small) var(--large);
+      border-radius: 500px;
+      box-shadow: 0 0 0 2px var(--white);
+      transition: 50ms all ease-in;
+      color: var(--white);
+      font-size: var(--h3-font-size);
+      width: fit-content;
+      margin-inline: auto;
+    }
+
+    a:hover {
+      background-color: var(--white);
+      color: var(--red);
+      border: none;
+      box-shadow: none;
+      transition: 50ms all ease-in;
+    }
+
+    #sunday,
+    #saturday {
+      scroll-margin-top: 135px;
+    }
+
+    @media (min-width: 1200px) {
+      #sunday,
+      #saturday {
+        scroll-margin-top: 0px;
+      }
+      .schedule-container {
+        display: flex;
+        width: 100%;
+      }
+      .schedule-right {
+        width: 50%;
+      }
+
+      .schedule-left {
+        width: 50%;
+        height: 100dvh;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+      }
+
+      .hero-grid h1 {
+        grid-column: 1 / span 2;
+      }
+
+      .hero-grid video {
+        grid-column: 1 / span 3;
+      }
+
+      .hero-grid p {
+        grid-column: 3 / span 3;
+      }
+    }
+    .schedule-header {
+      text-align: center;
+      margin-block: var(--large);
+    }
+
+    .banner-wrapper {
+      max-width: 100%;
+      overflow: hidden;
+      margin: auto;
+      background-color: var(--red);
+      padding-block: var(--extra-small);
+      color: white;
+    }
+
+    .banner-content {
+      white-space: nowrap;
+      overflow: hidden;
+      display: inline-block;
+      animation: banner-animation 30s linear infinite;
+    }
+
+    .banner-content p {
+      display: inline-block;
+      font-family: "heading-font";
+      font-size: var(--h4-font-size);
+    }
+
+    @keyframes banner-animation {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    .marquee > p::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background-color: green;
     }
   </style>
 
