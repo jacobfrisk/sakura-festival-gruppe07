@@ -2,7 +2,6 @@
 ---
 
 <h1>Booths</h1>
-
 <div class="wrapper">
   <button class="active" data-filter="Restaurant">Restaurant</button>
   <div class="divider"></div>
@@ -70,7 +69,13 @@
   }
 
   .wrapper {
-    text-align: center;
+    max-width: 1200px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
   }
 
   .divider {

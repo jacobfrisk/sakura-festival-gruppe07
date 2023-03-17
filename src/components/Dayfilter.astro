@@ -1,0 +1,61 @@
+---
+---
+
+<section class="daySwicther">
+  <button class="active" data-filter="Saturday">Saturday</button>
+  <button data-filter="Sunday">Sunday</button>
+</section>
+
+<script>
+  let filter = "Saturday";
+  doFiltering();
+  document.querySelectorAll("button").forEach((btn) => {
+    btn.addEventListener("click", btnClick);
+  });
+
+  function btnClick(evt) {
+    filter = evt.target.dataset.filter;
+    console.log(filter);
+    doFiltering();
+    document.querySelectorAll("button").forEach((btn) => {
+      if (btn.dataset.filter === filter) {
+        btn.classList.add("active");
+      } else {
+        btn.classList.remove("active");
+      }
+    });
+  }
+
+  function doFiltering() {
+    document.querySelectorAll("article").forEach((element) => {
+      console.log(element.classList.contains(filter));
+      if (element.classList.contains(filter) === true) {
+        element.classList.remove("hide");
+      } else {
+        element.classList.add("hide");
+      }
+    });
+  }
+</script>
+
+<style>
+  button {
+    -webkit-text-stroke: 1px #000;
+    color: transparent;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: var(--h3-font-size);
+  }
+  .active {
+    color: #000;
+  }
+
+  section.daySwicther.astro-IVP77FW4 {
+    width: 30rem;
+    margin: var(--large) auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+</style>
