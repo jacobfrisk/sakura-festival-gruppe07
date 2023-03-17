@@ -89,7 +89,7 @@ const data = await response.json();
             data
               .sort((a, b) => parseInt(a.time) - parseInt(b.time))
               .filter((stage) => stage.day === "Saturday")
-              .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} />)
+              .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
           }
         </section>
         <section id="sunday">
@@ -98,7 +98,7 @@ const data = await response.json();
             data
               .sort((a, b) => parseInt(a.time) - parseInt(b.time))
               .filter((stage) => stage.day === "Sunday")
-              .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} />)
+              .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
           }
         </section>
       </div>
