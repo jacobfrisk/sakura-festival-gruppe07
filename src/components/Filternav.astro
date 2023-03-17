@@ -1,14 +1,21 @@
 ---
 ---
 
-<h1>Filter nav</h1>
+<h1>Booths</h1>
 
-<button class="active" data-filter="Restaurant">Restaurant</button>
-<button data-filter="Shops">Shops</button>
-<button data-filter="Café">Café</button>
-<button data-filter="Hobby">Hobby</button>
-<button data-filter="Other">Other</button>
-<button data-filter="All">All</button>
+<div class="wrapper">
+  <button class="active" data-filter="Restaurant">Restaurant</button>
+  <div class="divider"></div>
+  <button data-filter="Shops">Shops</button>
+  <div class="divider"></div>
+  <button data-filter="Café">Café</button>
+  <div class="divider"></div>
+  <button data-filter="Hobby">Hobby</button>
+  <div class="divider"></div>
+  <button data-filter="Other">Other</button>
+  <div class="divider"></div>
+  <button data-filter="All">All Booths</button>
+</div>
 
 <script>
   let filter = "Restaurant";
@@ -44,6 +51,31 @@
 
 <style>
   .active {
-    background-color: red;
+    background-color: hsl(349, 65%, 42%);
+    color: white;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+    color: #af253e;
+  }
+
+  button {
+    border-radius: 12px;
+    padding: 1em 2em 1em 2em;
+    font-family: "heading-font";
+    font-size: clamp(0.9rem, 0.9697rem + 0.1294vw, 1.125rem);
+  }
+
+  .wrapper {
+    text-align: center;
+  }
+
+  .divider {
+    width: 5px;
+    height: auto;
+    display: inline-block;
   }
 </style>

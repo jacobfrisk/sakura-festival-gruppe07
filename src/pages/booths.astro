@@ -3,6 +3,7 @@ import "../styles/style.css";
 import "../styles/booths.css";
 import { Debug } from "astro/components";
 import Filternav from "../components/Filternav.astro";
+import Footer from "../components/Footer.astro";
 
 const url =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Booths?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -69,32 +70,18 @@ const data = await response.json();
 
     <h1 class="h1_booths">Map</h1> -->
   </main>
-  <footer></footer>
+  <footer><Footer /></footer>
 
   <style>
-    .dot {
-      margin: 0 0.6em 0 0.6em;
+    .hide {
+      display: none;
     }
 
-    .booths_p {
-      text-align: center;
-      margin: auto;
-      color: #af253e;
-    }
-
-    .h1_booths {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      margin-top: 3rem;
-      color: #af253e;
+    h2 {
+      padding: 1em 0 0 3em;
     }
 
     p {
-      max-width: 100ch;
-    }
-
-    .hide {
-      display: none;
     }
   </style>
 
