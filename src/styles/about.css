@@ -6,7 +6,6 @@
 }
 
 h1 {
-  padding-top: var(--medium);
   padding-bottom: var(--large);
   color: var(--red);
 }
@@ -27,7 +26,6 @@ a {
 
 @media (min-width: 800px) {
   h1 {
-    padding-top: var(--large);
     padding-bottom: var(--extra-large);
   }
 
