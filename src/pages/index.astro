@@ -17,10 +17,10 @@ const data = await response.json();
 ---
 
 <html lang="en">
-  <details>
+  <!-- <details>
     <summary>Debugger</summary>
     <Debug {data} />
-  </details>
+  </details> -->
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -29,15 +29,6 @@ const data = await response.json();
     <title>Astro</title>
   </head>
   <body>
-    <div class="main-container">
-      <div class="hero-section">
-        <div class="hero-grid">
-          <h1>Sakura Festival</h1>
-          <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
-          <p>Experience the magic of Japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
-        </div>
-      </div>
-    </div>
     <div class="banner-wrapper">
       <div class="banner-content">
         <p>FREE ENTRANCE &#x2022;</p>
@@ -72,6 +63,15 @@ const data = await response.json();
         <p>LANGELINIE PARKEN &#x2022;</p>
         <p>22/4 - 23/4 &#x2022;</p>
         <p>11.00 - 16.00 &#x2022;</p>
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="hero-section">
+        <div class="hero-grid">
+          <h1>Sakura Festival</h1>
+          <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
+          <p>Experience the magic of Japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
+        </div>
       </div>
     </div>
   </body>
@@ -213,7 +213,7 @@ const data = await response.json();
     }
     .schedule-header {
       text-align: center;
-      margin-block: var(--large);
+      margin-bottom: var(--large);
     }
 
     .banner-wrapper {
@@ -221,7 +221,7 @@ const data = await response.json();
       overflow: hidden;
       margin: auto;
       background-color: var(--red);
-      padding-block: var(--extra-small);
+      padding-block: 0.3rem;
       color: white;
     }
 
@@ -229,13 +229,13 @@ const data = await response.json();
       white-space: nowrap;
       overflow: hidden;
       display: inline-block;
-      animation: banner-animation 25s linear infinite;
+      animation: banner-animation 100s linear infinite;
     }
 
     .banner-content p {
       display: inline-block;
       font-family: "heading-font";
-      font-size: var(--h4-font-size);
+      font-size: var(--p-font-size);
     }
 
     @keyframes banner-animation {
@@ -247,6 +247,4 @@ const data = await response.json();
       }
     }
   </style>
-
-
 </html>
