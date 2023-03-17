@@ -39,8 +39,9 @@ const data = await response.json();
       data.map((stage) => {
         return (
           <article class={stage.Kategori}>
-            <h2>{stage.Navn}</h2>
-            <p>{stage.Kategori}</p>
+            <h3>{stage.Navn}</h3>
+            <p>{stage.Beskrivelse}</p>
+            <p>{stage.Stand}</p>
           </article>
         );
       })
@@ -77,11 +78,14 @@ const data = await response.json();
       display: none;
     }
 
-    h2 {
-      padding: 1em 0 0 3em;
+    h3 {
+      color: black;
+      margin: 1em 0 0 3em;
     }
 
     p {
+      margin-left: 3em;
+      padding-top: 0;
     }
   </style>
 
