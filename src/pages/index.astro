@@ -121,9 +121,7 @@ const data = await response.json();
       position: sticky;
       top: 0;
       display: flex;
-      /* padding-block: var(--large); */
-
-      gap: 4rem;
+      padding-block: var(--large);
     }
 
     .schedule-left h2 {
@@ -188,6 +186,7 @@ const data = await response.json();
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        gap: var(--large);
       }
 
       .hero-grid {
@@ -197,14 +196,19 @@ const data = await response.json();
 
       .hero-grid h1 {
         grid-column: 1 / span 2;
+        grid-row: 1;
+        z-index: 1;
+        color: var(--red);
       }
 
       .hero-grid video {
         grid-column: 1 / span 3;
+        grid-row: 2 / span 1;
       }
 
       .hero-grid p {
         grid-column: 3 / span 3;
+        grid-row: 3;
       }
     }
     .schedule-header {
@@ -225,7 +229,7 @@ const data = await response.json();
       white-space: nowrap;
       overflow: hidden;
       display: inline-block;
-      animation: banner-animation 30s linear infinite;
+      animation: banner-animation 25s linear infinite;
     }
 
     .banner-content p {
@@ -241,19 +245,6 @@ const data = await response.json();
       100% {
         transform: translate3d(-50%, 0, 0);
       }
-    }
-
-    .marquee > p::after {
-      content: "";
-      display: block;
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background-color: green;
     }
   </style>
 
