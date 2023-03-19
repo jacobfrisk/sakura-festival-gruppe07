@@ -61,12 +61,12 @@
     color: #af253e;
   }
 
-  button {
+  /* button {
     border-radius: 12px;
     padding: 1em 2em 1em 2em;
     font-family: "heading-font";
     font-size: clamp(0.9rem, 0.9697rem + 0.1294vw, 1.125rem);
-  }
+  } */
 
   .wrapper {
     max-width: 1200px;
@@ -77,6 +77,27 @@
     gap: 1rem;
     flex-wrap: wrap;
     margin-bottom: 4rem;
+  }
+
+  button {
+    border-radius: 500px;
+    box-shadow: 0 0 0 2px var(--red);
+    transition: 50ms all ease-in;
+    color: var(--red);
+    margin-inline: auto;
+    text-align: center;
+    border: none;
+    padding: var(--extra-small) var(--medium);
+    font-size: var(--h4-font-size);
+    background: transparent;
+  }
+
+  button:hover {
+    background-color: var(--red);
+    color: var(--pink);
+    border: none;
+    box-shadow: none;
+    transition: 50ms all ease-in;
   }
 
   .divider {
