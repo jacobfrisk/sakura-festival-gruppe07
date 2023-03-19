@@ -2,7 +2,7 @@
 import "../styles/style.css";
 import { Debug } from "astro/components";
 import Dayfilter from "../components/Dayfilter.astro";
-import Stages from "../components/Stages.astro";
+import Button from "../components/Button.astro";
 
 const url =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -46,6 +46,7 @@ data
     <section id="scenes">
       <div class="stage_column">
         <h3 id="mainStage">Main stage</h3>
+
         {
           main.map((stage) => {
             return (
@@ -64,7 +65,9 @@ data
                       </svg>
                       <p>{stage.time}</p>
                     </div>
-                    <button>Read more</button>
+                    <Button size="small" variant="primary">
+                      Read more
+                    </Button>
                   </div>
                   <p>{stage.descriptionshort}</p>
                 </div>
@@ -74,6 +77,7 @@ data
         }
       </div>
       <hr class="vr" />
+
       <div class="stage_column">
         <h3 id="secondStage">Second stage</h3>
 
@@ -95,7 +99,9 @@ data
                       </svg>
                       <p>{stage.time}</p>
                     </div>
-                    <button>Read more</button>
+                    <Button size="small" variant="primary">
+                      Read more
+                    </Button>
                   </div>
                   <p>{stage.descriptionshort}</p>
                 </div>
@@ -105,8 +111,10 @@ data
         }
       </div>
       <hr class="vr" />
+
       <div class="stage_column">
         <h3 id="onTheLawn">On the lawn</h3>
+
         {
           lawn.map((stage) => (
             <article id="lawn" class={stage.day}>
@@ -124,7 +132,9 @@ data
                     </svg>
                     <p>{stage.time}</p>
                   </div>
-                  <button>Read more</button>
+                  <Button size="small" variant="primary">
+                    Read more
+                  </Button>
                 </div>
                 <p>{stage.descriptionshort}</p>
               </div>
@@ -169,15 +179,108 @@ data
   } -->
 
 <style>
-  .hide {
-    display: none;
-  }
-  h1,
-  h4 {
-    color: var(--red);
-  }
+  @media (max-width: 1200px) {
+    .hide {
+      display: none;
+    }
+    body {
+      margin: 0 var(--medium);
+    }
+    h1,
+    h4 {
+      color: var(--red);
+    }
 
+    h2 {
+      font-size: var(--h1-font-size);
+    }
+
+    h3 {
+      font-size: var(--h2-font-size);
+      position: absolute;
+      top: -1.5%;
+    }
+
+    h4 {
+      font-size: var(--h3-font-size);
+    }
+
+    .event-info-flex {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    hr {
+      border-top: 1px solid var(--red);
+      margin: var(--small) 0;
+    }
+
+    div.header.astro-XJQXVEZ7 {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .stage_column {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--small);
+      position: relative;
+    }
+
+    article.astro-XJQXVEZ7 {
+      background-color: var(--card-bg);
+      margin: var(--medium) 0;
+      max-width: 60vw;
+      border-radius: 10px;
+      flex-basis: calc(50% - 10px);
+    }
+
+    article img {
+      height: 15vh;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 10px 10px 0 0;
+    }
+
+    .stage_content {
+      padding: var(--medium);
+    }
+    .stage_content p {
+      margin-top: 1rem;
+      font-size: var(--p-font-size);
+    }
+  }
   @media (min-width: 1200px) {
+    .event-info-flex {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .hide {
+      display: none;
+    }
+
+    body {
+      margin: 0 var(--medium);
+    }
+
+    .stage_column {
+    }
+
+    #mainStage {
+      margin-bottom: 20px;
+    }
+    article.astro-XJQXVEZ7 {
+      background-color: var(--card-bg);
+      margin: var(--medium) 0;
+      max-width: 30vw;
+      flex-basis: 0;
+      border-radius: 10px;
+    }
     h4 {
       font-size: var(--h5-font-size);
     }
@@ -195,9 +298,6 @@ data
       border: 0.5px solid var(--red);
     }
 
-    body {
-      margin: 0 var(--medium);
-    }
     h1.astro-XJQXVEZ7 {
       text-align: center;
     }
@@ -205,13 +305,7 @@ data
     #scenes.astro-XJQXVEZ7 {
       display: flex;
       gap: var(--small);
-    }
-
-    article.astro-XJQXVEZ7 {
-      background-color: var(--card-bg);
-      margin: var(--medium) 0;
-      max-width: 30vw;
-      border-radius: 10px;
+      flex-direction: row;
     }
 
     button.astro-XJQXVEZ7 {
@@ -259,6 +353,23 @@ data
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
+    }
+    button.astro-IVP77FW4 {
+      margin-left: 2rem;
+    }
+
+    div.stage_content.astro-XJQXVEZ7 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    div.event-info-flex.astro-XJQXVEZ7 {
+      display: flex;
+      gap: var(--extra-small);
+    }
+
+    h4.astro-XJQXVEZ7 {
+      margin-bottom: 1rem;
     }
   }
 </style>

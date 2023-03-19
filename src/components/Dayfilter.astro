@@ -1,4 +1,5 @@
 ---
+import Button from "../components/Button.astro";
 ---
 
 <section class="daySwicther">
@@ -40,23 +41,26 @@
 
 <style>
   button {
-    border: 1px solid var(--black);
-    padding: 0.9rem 0;
-    border-radius: 37px;
-    -webkit-text-stroke: 0;
-    color: var(--black);
+    border-radius: 500px;
+    box-shadow: 0 0 0 2px var(--red);
+    transition: 50ms all ease-in;
+    color: var(--red);
+    margin-inline: auto;
+    text-align: center;
+    border: none;
+    padding: var(--extra-small) var(--medium);
     font-size: var(--h4-font-size);
     cursor: pointer;
-    font-family: "heading-font";
-    width: 11rem;
   }
+
   button.active.astro-IVP77FW4 {
     background-color: var(--red);
     color: var(--card-bg);
     -webkit-text-stroke: 0;
     border: none;
   }
-
-  section.daySwicther.astro-IVP77FW4 {
+  .daySwicther {
+    display: flex;
+    gap: 2rem;
   }
 </style>
