@@ -172,7 +172,10 @@ svg {
 
 /* streg styling */
 hr {
-  border-top: 0.1px solid var(--red);
+  border-top: 2px solid var(--pink);
+  border-bottom: 0;
+  border-left: 0;
+  border-right: 0;
 }
 /* main-container til content */
 .main-container {
