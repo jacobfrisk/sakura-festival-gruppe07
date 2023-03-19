@@ -40,22 +40,23 @@
 
 <style>
   button {
-    -webkit-text-stroke: 1px #000;
-    color: transparent;
-    border: none;
-    background-color: transparent;
+    border: 1px solid var(--black);
+    padding: 0.9rem 0;
+    border-radius: 37px;
+    -webkit-text-stroke: 0;
+    color: var(--black);
+    font-size: var(--h4-font-size);
     cursor: pointer;
-    font-size: var(--h3-font-size);
+    font-family: "heading-font";
+    width: 11rem;
   }
-  .active {
-    color: #000;
+  button.active.astro-IVP77FW4 {
+    background-color: var(--red);
+    color: var(--card-bg);
+    -webkit-text-stroke: 0;
+    border: none;
   }
 
   section.daySwicther.astro-IVP77FW4 {
-    width: 30rem;
-    margin: var(--large) auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
   }
 </style>

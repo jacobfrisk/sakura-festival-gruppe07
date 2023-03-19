@@ -13,23 +13,60 @@ const data = await response.json();
 ---
 
 <div class="boder">
-  {
-    data.map((stage) => {
-      return (
-        <article class={stage.Kategori}>
-          <p>{stage.Navn}</p>
-        </article>
-      );
-    })
-  }
+  <div class="boder1">
+    {
+      data
+        .filter((stage) => stage.Stand < 20)
+        .sort((a, b) => parseInt(a.Stand) - parseInt(b.Stand))
+        .map((stage) => {
+          return (
+            <article class={stage.Kategori}>
+              <div class="info-flex-b">
+                <p>{stage.Stand}</p>
+                <p>{stage.Navn}</p>
+              </div>
+            </article>
+          );
+        })
+    }
+  </div>
+  <div class="boder2">
+    {
+      data
+        .filter((stage) => stage.Stand > 19)
+        .sort((a, b) => parseInt(a.Stand) - parseInt(b.Stand))
+        .map((stage) => {
+          return (
+            <article class={stage.Kategori}>
+              <div class="info-flex-b">
+                <p>{stage.Stand}</p>
+                <p>{stage.Navn}</p>
+              </div>
+            </article>
+          );
+        })
+    }
+  </div>
 </div>
 
 <style>
-  .boder {
+  /* .boder1 {
     grid-column: 2/3;
     max-height: 25rem;
-  }
+  } */
 
   article {
+  }
+
+  .boder {
+    display: flex;
+    padding-bottom: 10rem;
+    gap: 1.5rem;
+  }
+
+  .info-flex-b {
+    display: flex;
+    gap: var(--small);
+    margin-top: var(--extra-small);
   }
 </style>
