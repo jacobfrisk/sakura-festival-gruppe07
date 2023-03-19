@@ -4,6 +4,7 @@ import "../styles/booths.css";
 import { Debug } from "astro/components";
 import Filternav from "../components/Filternav.astro";
 import Footer from "../components/Footer.astro";
+import Map from "../components/Map.astro";
 
 const url =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Booths?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -35,18 +36,30 @@ const data = await response.json();
   <main>
     <Filternav />
 
-    {
-      data.map((stage) => {
-        return (
-          <article class={stage.Kategori}>
-            <h3>{stage.Navn}</h3>
-            <p>{stage.Beskrivelse}</p>
-            <p>{stage.Stand}</p>
-          </article>
-        );
-      })
-    }
+    <div class="booths_text">
+      {
+        data.map((stage) => {
+          return (
+            <article class={stage.Kategori}>
+              <h3>{stage.Navn}</h3>
+              <p>{stage.Beskrivelse}</p>
+              <p>{stage.Stand}</p>
+            </article>
+          );
+        })
+      }
+      <hr />
+    </div>
+    <div class="booths_map">
+      <div class="map">
+        <img src="./img/map.webp" alt="Map overview" />
+      </div>
 
+      <div class="steder">
+        <div class="placering"></div>
+        <Map />
+      </div>
+    </div>
     <!-- <h1 class="h1_booths">Booths</h1>
     <p class="booths_p">Selfish <em class="dot"> •</em> Banzai <em class="dot"> •</em> Saito <em class="dot"> •</em> Sushi Shop</p>
     <br />
@@ -74,18 +87,46 @@ const data = await response.json();
   <footer><Footer /></footer>
 
   <style>
+    .booths_map {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .map img {
+      width: 100%;
+    }
+
     .hide {
       display: none;
     }
 
     h3 {
       color: black;
-      margin: 1em 0 0 3em;
     }
 
-    p {
-      margin-left: 3em;
-      padding-top: 0;
+    article {
+      padding: 0 5rem;
+      padding-bottom: 1rem;
+    }
+
+    .booths_text {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    hr {
+      width: 1px;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 50%;
+    }
+
+    .steder {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
     }
   </style>
 
