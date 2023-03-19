@@ -1,67 +1,68 @@
 ---
 import "../styles/style.css";
 ---
-<hr>
+
+<hr />
 <footer>
-    <div>
-        <h4>Contact</h4>
-        <p>phone: (+45) 3345 5121</p>
-        <p>fax: (+45) 3311 3377</p>
-        <p>email: info.cph@ch.mofa.go.jp</p>
+  <div>
+    <h4>Contact</h4>
+    <p><strong>Phone:</strong> (+45) 3345 5121</p>
+    <p><strong>Fax:</strong> (+45) 3311 3377</p>
+    <p><strong>Email:</strong> info.cph@ch.mofa.go.jp</p>
+  </div>
+  <div>
+    <div class="some-links">
+      <a href="https://www.instagram.com/copenhagensakurafestival/">
+        <img class="some-icon" src="../public/icons/instagram.svg" alt="instagram" />
+      </a>
+      <a href="https://www.facebook.com/copenhagensakurafestival">
+        <img class="some-icon" src="../public/icons/facebook.svg" alt="facebook" />
+      </a>
     </div>
-    <div>
-        <div class="some-links">
-            <a href="https://www.instagram.com/copenhagensakurafestival/">
-                <img class="some-icon" src="../public/icons/instagram.svg" alt="instagram">
-            </a>
-            <a href="https://www.facebook.com/copenhagensakurafestival">
-                <img class="some-icon" src="../public/icons/facebook.svg" alt="facebook">
-            </a>
-        </div>
-        <div class="p-right">
-            <p>phone: (+45) 3345 5121</p>
-            <p>fax: (+45) 3311 3377</p>
-            <p>email: info.cph@ch.mofa.go.jp</p>
-        </div>
+    <div class="p-right">
+      <p>c/o Embassy of Japan</p>
+      <p>Havneholmen 25, 9F.</p>
+      <p>1561 København V</p>
     </div>
+  </div>
 </footer>
 
 <style>
-    footer {
+  footer {
     display: flex;
     justify-content: space-between;
     margin-bottom: var(--medium);
     padding-inline: var(--medium);
     max-width: 1400px;
     margin-inline: auto;
-    }
+  }
 
-    .some-links {
-        display: flex;
-        gap: auto;
-        justify-content: flex-end;
-        padding-bottom: var(--small);
-    }
+  .some-links {
+    display: flex;
+    gap: auto;
+    justify-content: flex-end;
+    padding-bottom: var(--small);
+  }
 
-    .some-icon {
-        height: 30px;
-        padding-left: var(--extra-small);
-    }
+  .some-icon {
+    height: 30px;
+    padding-left: var(--extra-small);
+  }
 
-    .p-right {
-        text-align: right;
-    }
+  .p-right {
+    text-align: right;
+  }
 
-    hr {
-        color: var(--red);
-        margin-bottom:var(--medium);
-    }
+  hr {
+    color: var(--red);
+    margin-bottom: var(--medium);
+  }
 
-    p {
-        font-size: var(--psmall-font-size);
-    }
+  p {
+    font-size: var(--psmall-font-size);
+  }
 
-    h4 {
-        padding-bottom: var(--small);
-    }
+  h4 {
+    padding-bottom: var(--small);
+  }
 </style>
