@@ -20,6 +20,12 @@ body {
   scroll-behavior: smooth;
 }
 
+html {
+  background: rgb(253, 251, 254);
+  background: linear-gradient(180deg, rgba(253, 251, 254, 1) 0%, rgba(255, 210, 230, 1) 100%);
+  height: fit-content;
+}
+
 /* Typographic tweaks!
   4. Add accessible line-height
   5. Improve text rendering
@@ -28,7 +34,6 @@ body {
 body {
   -webkit-font-smoothing: antialiased;
   font: inherit;
-  background-color: var(--white);
 }
 
 /* 6. Improve media defaults */
