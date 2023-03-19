@@ -3,7 +3,8 @@ import "../styles/style.css";
 const { variant, size } = Astro.props;
 ---
 
-<button class={variant + " " + size} data-filter={Astro.props.filter}><slot /></button>
+<!-- <button class={variant + " " + size} data-filter={Astro.props.filter}><slot /></button> -->
+<button class={`${variant} ${size} ${Astro.props.className}`} data-filter={Astro.props.filter}><slot /></button>
 
 <style>
   .primary {
