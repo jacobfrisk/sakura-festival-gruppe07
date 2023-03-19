@@ -2,7 +2,6 @@
 import "../styles/style.css";
 import { Debug } from "astro/components";
 import Dayfilter from "../components/Dayfilter.astro";
-import Stages from "../components/Stages.astro";
 
 const url =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -169,12 +168,34 @@ data
   } -->
 
 <style>
+  body {
+    margin: 0 var(--medium);
+  }
   .hide {
     display: none;
   }
   h1,
   h4 {
     color: var(--red);
+  }
+
+  div.header.astro-XJQXVEZ7 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  #scenes.astro-XJQXVEZ7 {
+    flex-direction: column;
+  }
+
+  article.astro-XJQXVEZ7 {
+    background-color: var(--card-bg);
+    margin: var(--medium) 0;
+    max-width: 30vw;
+    border-radius: 10px;
   }
 
   @media (min-width: 1200px) {
@@ -195,9 +216,6 @@ data
       border: 0.5px solid var(--red);
     }
 
-    body {
-      margin: 0 var(--medium);
-    }
     h1.astro-XJQXVEZ7 {
       text-align: center;
     }
@@ -205,13 +223,7 @@ data
     #scenes.astro-XJQXVEZ7 {
       display: flex;
       gap: var(--small);
-    }
-
-    article.astro-XJQXVEZ7 {
-      background-color: var(--card-bg);
-      margin: var(--medium) 0;
-      max-width: 30vw;
-      border-radius: 10px;
+      flex-direction: row;
     }
 
     button.astro-XJQXVEZ7 {
@@ -259,6 +271,23 @@ data
       justify-content: space-between;
       align-items: center;
       margin-bottom: 2rem;
+    }
+    button.astro-IVP77FW4 {
+      margin-left: 2rem;
+    }
+
+    div.stage_content.astro-XJQXVEZ7 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    div.event-info-flex.astro-XJQXVEZ7 {
+      display: flex;
+      gap: var(--extra-small);
+    }
+
+    h4.astro-XJQXVEZ7 {
+      margin-bottom: 1rem;
     }
   }
 </style>

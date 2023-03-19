@@ -1,9 +1,12 @@
 ---
+import Button from "../components/Button.astro";
 ---
 
 <section class="daySwicther">
-  <button class="active" data-filter="Saturday">Saturday</button>
-  <button data-filter="Sunday">Sunday</button>
+  <!-- <button class="active" data-filter="Saturday">Saturday</button>
+  <button data-filter="Sunday">Sunday</button> -->
+  <Button class="active" variant="primary" size="large" data-filter="Saturday">Saturday</Button>
+  <Button variant="primary" size="large" data-filter="Sunday">Sunday</Button>
 </section>
 
 <script>
@@ -56,7 +59,8 @@
     -webkit-text-stroke: 0;
     border: none;
   }
-
-  section.daySwicther.astro-IVP77FW4 {
+  .daySwicther {
+    display: flex;
+    gap: 2rem;
   }
 </style>
