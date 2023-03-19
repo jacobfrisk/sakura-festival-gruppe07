@@ -2,7 +2,7 @@
 import "../styles/style.css";
 import { Debug } from "astro/components";
 import EventSlot from "../components/EventSlot.astro";
-import Button from "../components/Button.astro";
+import ButtonLink from "../components/ButtonLink.astro";
 
 const eventUrl =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -86,8 +86,8 @@ const boothData = await response2.json();
       <div class="schedule-left">
         <h2 class="schedule-header">Schedule</h2>
         <div class="btn-container">
-          <Button variant="primary" size="large" href="#saturday">Saturday</Button>
-          <Button variant="primary" size="large" href="#sunday">Sunday</Button>
+          <ButtonLink variant="primary" size="large" href="#saturday">Saturday</ButtonLink>
+          <ButtonLink variant="primary" size="large" href="#sunday">Sunday</ButtonLink>
         </div>
       </div>
       <div class="schedule-right">

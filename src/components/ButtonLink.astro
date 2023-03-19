@@ -3,7 +3,7 @@ import "../styles/style.css";
 const { variant, size } = Astro.props;
 ---
 
-<button class={variant + " " + size} data-filter={Astro.props.filter}><slot /></button>
+<a class={variant + " " + size} href={Astro.props.href}><slot /></a>
 
 <style>
   .primary {
