@@ -61,7 +61,7 @@ h6 {
 p {
   max-width: 65ch;
   line-height: 1.6;
-  padding-top: 0.2rem;
+  /* padding-top: 0.2rem; */
 }
 
 /* 9. Create a root stacking context */
@@ -186,12 +186,12 @@ hr {
     opacity: 0;
     transform: scale(0.8);
   }
-  @keyframes banner-scroll {
+  @keyframes banner-animation {
     0% {
-      transform: translateX(0);
+      transform: translate3d(0, 0, 0);
     }
     100% {
-      transform: translateX(-100%);
+      transform: translate3d(-50%, 0, 0);
     }
   }
 }

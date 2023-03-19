@@ -1,0 +1,40 @@
+---
+import "../styles/style.css";
+const { variant, size } = Astro.props;
+---
+
+<a class={variant + " " + size} href={Astro.props.href}><slot /></a>
+
+<style>
+  .primary {
+    border-radius: 500px;
+    box-shadow: 0 0 0 2px var(--red);
+    transition: 50ms all ease-in;
+    color: var(--red);
+    margin-inline: auto;
+    text-align: center;
+  }
+
+  .primary:hover {
+    background-color: var(--red);
+    color: var(--pink);
+    border: none;
+    box-shadow: none;
+    transition: 50ms all ease-in;
+  }
+
+  .small {
+    padding: var(--extra-small) var(--small);
+    font-size: var(--p-font-size);
+  }
+
+  .medium {
+    padding: var(--extra-small) var(--medium);
+    font-size: var(--h4-font-size);
+  }
+
+  .large {
+    padding: var(--small) var(--large);
+    font-size: var(--h3-font-size);
+  }
+</style>
