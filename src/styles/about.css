@@ -1,13 +1,21 @@
 .about-img {
   width: 500px;
   border-radius: 10px;
-  box-shadow: 0px 0px 15px 5px var(--pink);
   margin-block: var(--medium);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 {
   padding-bottom: var(--large);
   color: var(--red);
+}
+
+p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
@@ -24,7 +32,7 @@ a {
   padding-block: var(--extra-large);
 }
 
-@media (min-width: 800px) {
+@media (min-width: 1150px) {
   h1 {
     padding-bottom: var(--extra-large);
   }
