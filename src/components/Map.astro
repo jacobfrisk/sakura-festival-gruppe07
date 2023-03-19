@@ -22,7 +22,7 @@ const data = await response.json();
           return (
             <article class={stage.Kategori}>
               <div class="info-flex-b">
-                <p>{stage.Stand}</p>
+                <p class="stand">{stage.Stand}.</p>
                 <p>{stage.Navn}</p>
               </div>
             </article>
@@ -39,7 +39,7 @@ const data = await response.json();
           return (
             <article class={stage.Kategori}>
               <div class="info-flex-b">
-                <p>{stage.Stand}</p>
+                <p class="stand">{stage.Stand}.</p>
                 <p>{stage.Navn}</p>
               </div>
             </article>
@@ -59,14 +59,20 @@ const data = await response.json();
   }
 
   .boder {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     padding-bottom: 10rem;
-    gap: 1.5rem;
+    gap: 3em;
+    padding-inline: 1rem;
   }
 
   .info-flex-b {
     display: flex;
     gap: var(--small);
     margin-top: var(--extra-small);
+  }
+
+  .stand {
+    font-weight: bold;
   }
 </style>

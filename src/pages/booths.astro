@@ -43,15 +43,14 @@ const data = await response.json();
             <article class={stage.Kategori}>
               <h3>{stage.Navn}</h3>
               <p>{stage.Beskrivelse}</p>
-              <p>{stage.Stand}</p>
             </article>
           );
         })
       }
-      <hr />
+      <hr class="hr2" />
     </div>
     <div class="map">
-      <img src="./img/map.webp" alt="Map overview" />
+      <img src="./img/map.webp" class="map_overblik" alt="Map overview" />
 
       <div class="info_pad">
         <div class="booths_places">
@@ -104,11 +103,11 @@ const data = await response.json();
             </div>
           </div>
         </div>
+        <hr class="hr3" />
 
-        <div class="steder">
-          <Map />
-        </div>
+        <div class="steder"></div>
       </div>
+      <Map />
     </div>
     <!-- <h1 class="h1_booths">Booths</h1>
     <p class="booths_p">Selfish <em class="dot"> •</em> Banzai <em class="dot"> •</em> Saito <em class="dot"> •</em> Sushi Shop</p>
@@ -138,12 +137,13 @@ const data = await response.json();
 
   <style>
     .info_pad {
-      padding: 1rem;
+      padding-left: 1rem;
     }
 
     .booths_places {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      grid: 1em;
     }
     .navi_map {
       display: flex;
@@ -179,13 +179,17 @@ const data = await response.json();
       position: relative;
       margin-bottom: 2rem;
     }
-
     hr {
+      margin: 1.5rem 0 1.5rem 0;
+    }
+
+    .hr2 {
       width: 1px;
       height: 100%;
       position: absolute;
-      top: 0;
+      top: -25px;
       left: 50%;
+      border-left: 0.1px solid var(--red);
     }
 
     .dot1 {
@@ -233,6 +237,42 @@ const data = await response.json();
       background-color: #3834fa;
       border-radius: 50%;
       display: inline-block;
+    }
+
+    @media (min-width: 1200px) {
+      .map {
+        display: grid;
+        grid-template-columns: 2fr 0.5fr 1fr;
+      }
+
+      .booths_places {
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      .hr3 {
+        display: none;
+      }
+
+      img {
+        max-width: 90%;
+      }
+
+      body {
+        margin: var(--medium);
+      }
+
+      .booths_text {
+        text-align: center;
+      }
+
+      .info_pad {
+        padding-left: 0;
+      }
+
+      .map_overblik {
+        padding-left: 1rem;
+      }
     }
   </style>
 
