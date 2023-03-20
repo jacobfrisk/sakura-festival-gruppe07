@@ -77,15 +77,25 @@
     font-size: var(--p-font-size);
   }
 
-  #myLinks.shown {
-    display: block;
+  #myLinks {
+    position: fixed;
+    top: clamp(2.8125rem, 2.767rem + 0.1942vw, 3rem);
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateX(-110%);
     width: 100vw;
     height: 100vh;
-    overflow-y: hidden;
+    background-color: var(--pink);
+    z-index: 1;
+    transition: transform 0.3s ease-out;
   }
 
-  #myLinks {
-    display: none;
+  #myLinks.shown {
+    transition: transform 0.3s ease-in;
+    transform: translateX(0%);
   }
 
   #burger {
@@ -130,6 +140,43 @@
   .pressed .hamburger::before {
     transform: rotate(90deg) translate(8px);
   }
+
+  div.topnav.astro-5NRTTP2S {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--small) var(--medium);
+    position: relative;
+  }
+
+  img.logo.astro-5NRTTP2S {
+    width: clamp(3.25rem, 2.6432rem + 2.589vw, 5.75rem);
+    z-index: 999;
+    position: relative;
+  }
+
+  #myLinks.shown {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: #f5c7dc;
+  }
+
+  span.hamburger.astro-5NRTTP2S {
+    z-index: 2;
+  }
+
+  li.astro-5NRTTP2S {
+    font-size: var(--menu-links-font-size);
+    font-family: heading-font;
+    text-transform: uppercase;
+    -webkit-text-stroke: 2px var(--black);
+    color: transparent;
+  }
 </style>
 
 <script>
@@ -140,25 +187,19 @@
 
   // Lav funktionen "toggleMenu()" med følgende funktionalitet
   function toggleMenu() {
-    // a) toggle klassen "shown" på menu vha. classList.toggle
-
     menu.classList.toggle("shown");
     btn.classList.toggle("pressed");
 
-    // b) lav variablen "menuShown", som siger, at menu-variablen indeholder klassen "shown" via classList.contains("")
     const menuShown = menu.classList.contains("shown");
-
-    // c) spørg om "menuShown" i if-sætningen nedenfor (=> if (menuShown)), og udskift teksten
     if (menuShown) {
-      console.log(menuShown); // se i konsollen
-      // btn.textContent = "Luk"; //hvis menuShown er "true"
+      document.body.style.overflow = "hidden";
+      console.log(menuShown);
     } else {
-      console.log(menuShown); // se i konsollen
-
-      // btn.textContent = "Menu"; // hvis menuShown er "false"
+      document.body.style.overflow = "auto";
+      console.log(menuShown);
     }
-    // "toggleMenu()" slutter her
   }
+
   // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
   btn.addEventListener("click", toggleMenu);
 </script>
