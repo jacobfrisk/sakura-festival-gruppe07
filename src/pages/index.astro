@@ -3,6 +3,7 @@ import "../styles/style.css";
 import { Debug } from "astro/components";
 import EventSlot from "../components/EventSlot.astro";
 import ButtonLink from "../components/ButtonLink.astro";
+import Layout from "../components/Layout.astro";
 
 const eventUrl =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -23,13 +24,11 @@ const response2 = await fetch(boothUrl);
 const boothData = await response2.json();
 ---
 
-<html lang="en">
-  <!-- <details>
+<!-- <html lang="en"> --><!-- <details>
     <summary>Debugger</summary>
     <Debug {eventData} />
     <Debug {boothData} />
-  </details> -->
-  <head>
+  </details> --><!-- <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
@@ -98,7 +97,7 @@ const boothData = await response2.json();
               eventData
                 .sort((a, b) => parseInt(a.time) - parseInt(b.time))
                 .filter((stage) => stage.day === "Saturday")
-                .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
+                .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
             }
           </section>
           <section id="sunday">
@@ -130,100 +129,100 @@ const boothData = await response2.json();
     </div>
   </body>
 
-  <style>
-    .booths {
-      display: flex;
-      flex-flow: wrap;
-      justify-content: center;
-      gap: var(--small);
-      text-transform: uppercase;
-    }
+<style>
+  .booths {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    gap: var(--small);
+    text-transform: uppercase;
+  }
 
-    .booth-container {
-      margin-block: var(--large);
-    }
+  .booth-container {
+    margin-block: var(--large);
+  }
 
-    .booths fragment {
-      display: flex;
-      place-items: center;
-      gap: var(--small);
-    }
-    .booth-container h2 {
-      text-align: center;
-      margin-bottom: var(--large);
-      color: var(--red);
-    }
+  .booths fragment {
+    display: flex;
+    place-items: center;
+    gap: var(--small);
+  }
+  .booth-container h2 {
+    text-align: center;
+    margin-bottom: var(--large);
+    color: var(--red);
+  }
 
-    .booth-container h4 {
-      font-family: "body-font";
-    }
-    .hero-video {
-      mask: url("img/svg-video-mask.svg") no-repeat center / contain;
-      -webkit-mask: url("img/svg-video-mask.svg") no-repeat center / contain;
-    }
-
-    .hero-grid > * {
-      margin-bottom: var(--large);
-    }
+  .booth-container h4 {
+    font-family: "body-font";
+  }
+  .hero-video {
+    mask: url("img/svg-video-mask.svg") no-repeat center / contain;
+    -webkit-mask: url("img/svg-video-mask.svg") no-repeat center / contain;
+  }
 
     .hero-grid h1,
     p {
       text-align: center;
     }
 
-    .hero-grid video {
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-    }
+  .hero-grid > * {
+    margin-block: 3rem;
+  }
 
-    .schedule-left {
-      background-color: var(--pink);
-      padding-block: var(--small);
-      position: sticky;
-      top: 0;
+  .hero-grid video {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 
-      color: var(--red);
-      display: grid;
-      gap: 1rem;
-    }
+  .schedule-left {
+    background-color: var(--pink);
+    padding-block: var(--small);
+    position: sticky;
+    top: 0;
 
-    h1 {
-      color: var(--red);
-    }
+    color: var(--red);
+    display: grid;
+    gap: 1rem;
+  }
 
-    .schedule-left h2 {
-      font-size: var(--h1-font-size);
-      text-align: center;
-    }
+  h1 {
+    color: var(--red);
+  }
 
-    hr {
-      margin-top: var(--small);
-    }
+  .schedule-left h2 {
+    font-size: var(--h1-font-size);
+    text-align: center;
+  }
 
-    section h4 {
-      text-align: center;
-      font-size: var(--h3-font-size);
-    }
-    #saturday h4 {
-      margin-top: var(--large);
-    }
-    #sunday h4 {
-      margin-top: var(--large);
-    }
+  hr {
+    margin-top: var(--small);
+  }
 
-    .btn-container {
-      display: flex;
-    }
-    #sunday,
-    #saturday {
-      scroll-margin-top: 180px;
-    }
+  section h4 {
+    text-align: center;
+    font-size: var(--h3-font-size);
+  }
+  #saturday h4 {
+    margin-top: var(--large);
+  }
+  #sunday h4 {
+    margin-top: var(--large);
+  }
 
-    #sunday p,
-    #saturday p {
-      padding-top: 0.2rem;
-    }
+  .btn-container {
+    display: flex;
+  }
+  #sunday,
+  #saturday {
+    scroll-margin-top: 180px;
+  }
+
+  #sunday p,
+  #saturday p {
+    padding-top: 0.2rem;
+  }
 
     @media (min-width: 1200px) {
       #saturday h4 {
@@ -239,13 +238,12 @@ const boothData = await response2.json();
         top: 5%;
       }
 
-      .hero-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        position: relative;
-        padding-block: 45vh;
-        padding-block: 45dvh;
-      }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      position: relative;
+      min-height: 90vh;
+    }
 
       .hero-grid p {
         position: absolute;
@@ -266,57 +264,35 @@ const boothData = await response2.json();
         max-width: 45vw;
       } */
 
-      .btn-container {
-        flex-direction: column;
-        gap: var(--large);
-      }
-
-      #sunday {
-        scroll-margin-top: 30px;
-      }
-
-      #saturday {
-        scroll-margin-top: 0px;
-      }
-      .schedule-container {
-        display: flex;
-        width: 100%;
-      }
-      .schedule-right {
-        width: 50%;
-      }
-
-      .schedule-left {
-        width: 50%;
-        height: 100dvh;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: var(--large);
-      }
-    }
-    .banner-wrapper {
-      max-width: 100%;
-      overflow: hidden;
-      margin: auto;
-      background-color: var(--red);
-      padding-block: 0.3rem;
-      color: white;
+    .btn-container {
+      flex-direction: column;
+      gap: var(--large);
     }
 
-    .banner-content {
-      white-space: nowrap;
-      overflow: hidden;
-      display: inline-block;
-      animation: banner-animation 100s linear infinite;
+    #sunday {
+      scroll-margin-top: 30px;
     }
 
-    .banner-content p {
-      display: inline-block;
-      font-family: "heading-font";
-      font-size: var(--p-font-size);
+    #saturday {
+      scroll-margin-top: 0px;
+    }
+    .schedule-container {
+      display: flex;
+      width: 100%;
+    }
+    .schedule-right {
+      width: 50%;
+    }
+
+    .schedule-left {
+      width: 50%;
+      height: 100dvh;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: var(--large);
     }
 
     h1 {
@@ -324,3 +300,4 @@ const boothData = await response2.json();
     }
   </style>
 </html>
+-->
