@@ -19,7 +19,7 @@ const response = await fetch(url, options);
 const data = await response.json();
 ---
 
-<a href={`/events/${link}`}>
+<a href={link}>
   <div class="flex-item">
     <img src={`./img/${image}`} alt="" />
   </div>
@@ -75,7 +75,7 @@ const data = await response.json();
     place-items: center;
     padding-block: var(--large);
     gap: var(--large);
-    padding-inline: 1rem;
+    padding-inline: var(--large);
     transition: 50ms ease all;
   }
 

@@ -98,7 +98,7 @@ const boothData = await response2.json();
               eventData
                 .sort((a, b) => parseInt(a.time) - parseInt(b.time))
                 .filter((stage) => stage.day === "Saturday")
-                .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
+                .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
             }
           </section>
           <section id="sunday">
@@ -162,13 +162,13 @@ const boothData = await response2.json();
       -webkit-mask: url("img/svg-video-mask.svg") no-repeat center / contain;
     }
 
+    .hero-grid > * {
+      margin-bottom: var(--large);
+    }
+
     .hero-grid h1,
     p {
       text-align: center;
-    }
-
-    .hero-grid > * {
-      margin-block: 3rem;
     }
 
     .hero-grid video {
@@ -243,7 +243,8 @@ const boothData = await response2.json();
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         position: relative;
-        min-height: 90vh;
+        padding-block: 45vh;
+        padding-block: 45dvh;
       }
 
       .hero-grid p {
