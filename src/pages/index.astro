@@ -27,14 +27,12 @@ const boothData = await response2.json();
 ---
 
 <Layout>
-  <div class="main-container">
-    <div class="hero-section">
-      <div class="hero-grid">
-        <h1>Sakura Festival</h1>
-        <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
-        <p>Experience the magic of Japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
-        <Iframe />
-      </div>
+  <div class="hero-section">
+    <div class="hero-grid">
+      <h1>Sakura Festival</h1>
+      <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
+      <p><strong>Experience the magic of Japan's cherry blossoms at Sakura Festival</strong><br /> - a spectacular celebration of nature and culture you can't miss!</p>
+      <Iframe />
     </div>
   </div>
   <div class="schedule-container">
@@ -87,6 +85,10 @@ const boothData = await response2.json();
 </Layout>
 
 <style>
+  .hero-section {
+    padding-inline: 4rem;
+  }
+
   .booths {
     display: flex;
     flex-flow: wrap;
@@ -203,12 +205,12 @@ const boothData = await response2.json();
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       position: relative;
-      min-height: 90vh;
+      min-height: 77vh;
     }
 
     .hero-grid p {
       position: absolute;
-      left: 80%;
+      left: 76%;
       bottom: 5%;
       max-width: 80ch;
     }
@@ -218,7 +220,7 @@ const boothData = await response2.json();
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 55vw;
+      max-width: 62vw;
       cursor: pointer;
     }
 
