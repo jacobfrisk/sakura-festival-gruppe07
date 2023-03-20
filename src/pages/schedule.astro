@@ -51,11 +51,11 @@ data
           main.map((stage) => {
             return (
               <article id="main" class={stage.day}>
-                <img src="https://source.unsplash.com/random/300x500" alt="" />
+                <img src={`../img/${stage.picture}`} alt="" />
                 <div class="stage_content">
                   <div class="event_info">
                     <h4>{stage.name}</h4>
-                    <hr />
+
                     <div class="event-info-flex">
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -65,11 +65,14 @@ data
                       </svg>
                       <p>{stage.time}</p>
                     </div>
+                    <hr />
                   </div>
                   <p>{stage.descriptionshort}</p>
-                  <Button size="small" variant="primary">
-                    Read more
-                  </Button>
+                  <div class="btn">
+                    <Button size="small" variant="primary">
+                      Read more
+                    </Button>
+                  </div>
                 </div>
               </article>
             );
@@ -85,11 +88,10 @@ data
           second.map((stage) => {
             return (
               <article id="second" class={stage.day}>
-                <img src="https://source.unsplash.com/random/300x500" alt="" />
+                <img src={`../img/${stage.picture}`} alt="" />
                 <div class="stage_content">
                   <div class="event_info">
                     <h4>{stage.name}</h4>
-                    <hr />
                     <div class="event-info-flex">
                       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
@@ -99,12 +101,15 @@ data
                       </svg>
                       <p>{stage.time}</p>
                     </div>
+                    <hr />
                   </div>
 
                   <p>{stage.descriptionshort}</p>
-                  <Button size="small" variant="primary">
-                    Read more
-                  </Button>
+                  <div class="btn">
+                    <Button size="small" variant="primary">
+                      Read more
+                    </Button>
+                  </div>
                 </div>
               </article>
             );
@@ -119,11 +124,10 @@ data
         {
           lawn.map((stage) => (
             <article id="lawn" class={stage.day}>
-              <img src="https://source.unsplash.com/random/300x500" alt="" />
+              <img src={`../img/${stage.picture}`} alt="" />
               <div class="stage_content">
                 <div class="event_info">
                   <h4>{stage.name}</h4>
-                  <hr />
                   <div class="event-info-flex">
                     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path
@@ -133,11 +137,14 @@ data
                     </svg>
                     <p>{stage.time}</p>
                   </div>
+                  <hr />
                 </div>
                 <p>{stage.descriptionshort}</p>
-                <Button size="small" variant="primary">
-                  Read more
-                </Button>
+                <div class="btn">
+                  <Button size="small" variant="primary">
+                    Read more
+                  </Button>
+                </div>
               </div>
             </article>
           ))
@@ -180,16 +187,25 @@ data
   } -->
 
 <style>
+  .event_info > * {
+    margin-bottom: var(--small);
+  }
+
+  .btn {
+    margin-top: var(--small);
+  }
+
+  h1,
+  h4 {
+    color: var(--red);
+  }
+
   @media (max-width: 1200px) {
     .hide {
       display: none;
     }
     body {
       margin: 0 var(--medium);
-    }
-    h1,
-    h4 {
-      color: var(--red);
     }
 
     h2 {
@@ -203,13 +219,12 @@ data
     }
 
     h4 {
-      font-size: var(--h3-font-size);
+      font-size: var(--h4-font-size);
     }
 
     .event-info-flex {
       display: flex;
-      gap: 1rem;
-      margin-bottom: 1rem;
+      gap: var(--extra-small);
     }
 
     hr {
@@ -248,17 +263,20 @@ data
     }
 
     .stage_content {
-      padding: var(--medium);
+      padding: var(--extra-small);
     }
     .stage_content p {
       font-size: var(--p-font-size);
+    }
+
+    p {
+      font-size: var(--psmall-font-size);
     }
   }
   @media (min-width: 1200px) {
     .event-info-flex {
       display: flex;
       gap: 1rem;
-      margin-bottom: 1rem;
     }
     .hide {
       display: none;
@@ -266,9 +284,6 @@ data
 
     body {
       margin: 0 var(--medium);
-    }
-
-    .stage_column {
     }
 
     #mainStage {
@@ -291,7 +306,6 @@ data
 
     hr {
       border-top: 1px solid var(--red);
-      margin: var(--small) 0;
     }
 
     .vr {
@@ -340,11 +354,11 @@ data
     }
 
     div.stage_content.astro-XJQXVEZ7 {
-      padding: var(--extra-small);
+      /* padding: var(--extra-small); */
     }
 
     .event_info {
-      padding: var(--extra-small);
+      /* padding: var(--extra-small); */
     }
 
     div.header.astro-XJQXVEZ7 {
@@ -366,10 +380,6 @@ data
     div.event-info-flex.astro-XJQXVEZ7 {
       display: flex;
       gap: var(--small);
-    }
-
-    h4.astro-XJQXVEZ7 {
-      margin-bottom: 1rem;
     }
   }
 </style>
