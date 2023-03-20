@@ -51,13 +51,19 @@ import Button from "../components/Button.astro";
     padding: var(--extra-small) var(--medium);
     font-size: var(--h4-font-size);
     cursor: pointer;
+    background: none;
   }
 
   button.active.astro-IVP77FW4 {
     background-color: var(--red);
-    color: var(--card-bg);
+    color: var(--white);
     -webkit-text-stroke: 0;
     border: none;
+  }
+
+  button:hover {
+    background-color: var(--red);
+    color: var(--white);
   }
   .daySwicther {
     display: flex;

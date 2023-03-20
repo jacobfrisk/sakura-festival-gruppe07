@@ -112,7 +112,7 @@ ul {
   --pink: #f5c7dc;
   --black: hsl(231, 25%, 11%);
   --white: hsl(280, 60%, 99%);
-  --card-bg: hsl(340, 15%, 92%);
+  --card-bg: hsl(340, 100%, 96%);
 
   /* Skriftstørrelser */
   --h1-font-size: clamp(2rem, 1.5146rem + 2.0712vw, 4rem);
@@ -185,7 +185,7 @@ hr {
 }
 /* main-container til content */
 .main-container {
-  padding-inline: var(--medium);
+  padding-inline: var(--extra-small);
   max-width: 1200px;
   margin-inline: auto;
 }
