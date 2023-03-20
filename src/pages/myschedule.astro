@@ -18,11 +18,6 @@ const response1 = await fetch(eventUrl, options);
 const eventData = await response1.json();
 ---
 
-<h4>Recently Viewed Event</h4>
-<p>Event Name: {localStorage.getItem("eventName")}</p>
-<p>Event Time: {localStorage.getItem("eventTime")}</p>
-<p>Event Location: {localStorage.getItem("eventLocation")}</p>
-<p>Event Day: {localStorage.getItem("eventDay")}</p>
 <div class="schedule-container">
   <div class="schedule-left">
     <h2 class="schedule-header">My schedule</h2>
@@ -35,6 +30,10 @@ const eventData = await response1.json();
     <div>
       <section id="saturday">
         <h4>Saturday</h4>
+        <h1 id="event-name"></h1>
+        <p id="event-day"></p>
+        <p id="event-location"></p>
+        <p id="event-time"></p>
         {
           eventData
             .sort((a, b) => parseInt(a.time) - parseInt(b.time))
@@ -225,8 +224,12 @@ const eventData = await response1.json();
 </style>
 
 <script>
-  const eventName = localStorage.getItem("eventName");
-  const eventTime = localStorage.getItem("eventTime");
-  const eventLocation = localStorage.getItem("eventLocation");
-  const eventDay = localStorage.getItem("eventDay");
+  //   const storedEvent = localStorage.getItem("favoriteEvent");
+  //   if (storedEvent) {
+  //     const event = JSON.parse(storedEvent);
+  //     document.querySelector("#event-name").innerHTML = event.name;
+  //     document.querySelector("#event-day").innerHTML = event.day;
+  //     document.querySelector("#event-location").innerHTML = event.location;
+  //     document.querySelector("#event-time").innerHTML = event.time;
+  //   }
 </script>

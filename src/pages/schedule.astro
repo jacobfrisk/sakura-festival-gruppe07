@@ -65,11 +65,11 @@ data
                       </svg>
                       <p>{stage.time}</p>
                     </div>
-                    <Button size="small" variant="primary">
-                      Read more
-                    </Button>
                   </div>
                   <p>{stage.descriptionshort}</p>
+                  <Button size="small" variant="primary">
+                    Read more
+                  </Button>
                 </div>
               </article>
             );
@@ -99,11 +99,12 @@ data
                       </svg>
                       <p>{stage.time}</p>
                     </div>
-                    <Button size="small" variant="primary">
-                      Read more
-                    </Button>
                   </div>
+
                   <p>{stage.descriptionshort}</p>
+                  <Button size="small" variant="primary">
+                    Read more
+                  </Button>
                 </div>
               </article>
             );
@@ -132,11 +133,11 @@ data
                     </svg>
                     <p>{stage.time}</p>
                   </div>
-                  <Button size="small" variant="primary">
-                    Read more
-                  </Button>
                 </div>
                 <p>{stage.descriptionshort}</p>
+                <Button size="small" variant="primary">
+                  Read more
+                </Button>
               </div>
             </article>
           ))
@@ -250,7 +251,6 @@ data
       padding: var(--medium);
     }
     .stage_content p {
-      margin-top: 1rem;
       font-size: var(--p-font-size);
     }
   }
@@ -335,8 +335,8 @@ data
     }
 
     div.stage_content.astro-XJQXVEZ7 p {
-      padding-top: var(--extra-small);
-      padding-left: var(--extra-small);
+      /* padding-top: var(--extra-small);
+      padding-left: var(--extra-small); */
     }
 
     div.stage_content.astro-XJQXVEZ7 {
@@ -358,14 +358,14 @@ data
       margin-left: 2rem;
     }
 
-    div.stage_content.astro-XJQXVEZ7 {
+    /* div.stage_content.astro-XJQXVEZ7 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-    }
+    } */
 
     div.event-info-flex.astro-XJQXVEZ7 {
       display: flex;
-      gap: var(--extra-small);
+      gap: var(--small);
     }
 
     h4.astro-XJQXVEZ7 {
