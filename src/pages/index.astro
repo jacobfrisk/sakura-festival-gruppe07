@@ -24,111 +24,63 @@ const response2 = await fetch(boothUrl);
 const boothData = await response2.json();
 ---
 
-<!-- <html lang="en"> --><!-- <details>
-    <summary>Debugger</summary>
-    <Debug {eventData} />
-    <Debug {boothData} />
-  </details> --><!-- <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
-  <body>
-    <div class="banner-wrapper">
-      <div class="banner-content">
-        <p>FREE ENTRANCE &#x2022;</p>
-        <p>LANGELINIE PARKEN &#x2022;</p>
-        <p>22/4 - 23/4 &#x2022;</p>
-        <p>11.00 - 16.00 &#x2022;</p>
-        <p>FREE ENTRANCE &#x2022;</p>
-        <p>LANGELINIE PARKEN &#x2022;</p>
-        <p>22/4 - 23/4 &#x2022;</p>
-        <p>11.00 - 16.00 &#x2022;</p>
-        <p>FREE ENTRANCE &#x2022;</p>
-        <p>LANGELINIE PARKEN &#x2022;</p>
-        <p>22/4 - 23/4 &#x2022;</p>
-        <p>11.00 - 16.00 &#x2022;</p>
-        <p>FREE ENTRANCE &#x2022;</p>
-        <p>LANGELINIE PARKEN &#x2022;</p>
-        <p>22/4 - 23/4 &#x2022;</p>
-        <p>11.00 - 16.00 &#x2022;</p>
-        <p>FREE ENTRANCE &#x2022;</p>
-        <p>LANGELINIE PARKEN &#x2022;</p>
-        <p>22/4 - 23/4 &#x2022;</p>
-        <p>11.00 - 16.00 &#x2022;</p>
-        <p>FREE ENTRANCE &#x2022;</p>
-        <p>LANGELINIE PARKEN &#x2022;</p>
-        <p>22/4 - 23/4 &#x2022;</p>
-        <p>11.00 - 16.00 &#x2022;</p>
-        <p>FREE ENTRANCE &#x2022;</p>
-        <p>LANGELINIE PARKEN &#x2022;</p>
-        <p>22/4 - 23/4 &#x2022;</p>
-        <p>11.00 - 16.00 &#x2022;</p>
-        <p>FREE ENTRANCE &#x2022;</p>
-        <p>LANGELINIE PARKEN &#x2022;</p>
-        <p>22/4 - 23/4 &#x2022;</p>
-        <p>11.00 - 16.00 &#x2022;</p>
+<Layout>
+  <div class="main-container">
+    <div class="hero-section">
+      <div class="hero-grid">
+        <h1>Sakura Festival</h1>
+        <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
+        <p>Experience the magic of Japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
       </div>
     </div>
-    <div class="main-container">
-      <div class="hero-section">
-        <div class="hero-grid">
-          <h1>Sakura Festival</h1>
-          <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
-          <p>Experience the magic of Japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
-        </div>
+  </div>
+  <div class="schedule-container">
+    <div class="schedule-left">
+      <h2 class="schedule-header">Schedule</h2>
+      <div class="btn-container">
+        <ButtonLink variant="primary" size="large" href="#saturday">Saturday</ButtonLink>
+        <ButtonLink variant="primary" size="large" href="#sunday">Sunday</ButtonLink>
       </div>
     </div>
-    <div class="schedule-container">
-      <div class="schedule-left">
-        <h2 class="schedule-header">Schedule</h2>
-        <div class="btn-container">
-          <ButtonLink variant="primary" size="large" href="#saturday">Saturday</ButtonLink>
-          <ButtonLink variant="primary" size="large" href="#sunday">Sunday</ButtonLink>
-        </div>
-      </div>
-      <div class="schedule-right">
-        <div>
-          <section id="saturday">
-            <h4>Saturday</h4>
-            {
-              eventData
-                .sort((a, b) => parseInt(a.time) - parseInt(b.time))
-                .filter((stage) => stage.day === "Saturday")
-                .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
-            }
-          </section>
-          <section id="sunday">
-            <h4>Sunday</h4>
-            {
-              eventData
-                .sort((a, b) => parseInt(a.time) - parseInt(b.time))
-                .filter((stage) => stage.day === "Sunday")
-                .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
-            }
-          </section>
-        </div>
-      </div>
-    </div>
-    <div class="booth-container">
-      <div class="main-container">
-        <h2>Booths</h2>
-        <div class="booths">
+    <div class="schedule-right">
+      <div>
+        <section id="saturday">
+          <h4>Saturday</h4>
           {
-            boothData.map((stage, index) => (
-              <fragment key={stage.id}>
-                <p>{stage.Navn}</p>
-                {index !== boothData.length - 1 && <>&bull;</>}
-              </fragment>
-            ))
+            eventData
+              .sort((a, b) => parseInt(a.time) - parseInt(b.time))
+              .filter((stage) => stage.day === "Saturday")
+              .map((stage) => <EventSlot header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
           }
-        </div>
+        </section>
+        <section id="sunday">
+          <h4>Sunday</h4>
+          {
+            eventData
+              .sort((a, b) => parseInt(a.time) - parseInt(b.time))
+              .filter((stage) => stage.day === "Sunday")
+              .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
+          }
+        </section>
       </div>
     </div>
-  </body>
-
+  </div>
+  <div class="booth-container">
+    <div class="main-container">
+      <h2>Booths</h2>
+      <div class="booths">
+        {
+          boothData.map((stage, index) => (
+            <fragment key={stage.id}>
+              <p>{stage.Navn}</p>
+              {index !== boothData.length - 1 && <>&bull;</>}
+            </fragment>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</Layout>
 <style>
   .booths {
     display: flex;
@@ -161,10 +113,10 @@ const boothData = await response2.json();
     -webkit-mask: url("img/svg-video-mask.svg") no-repeat center / contain;
   }
 
-    .hero-grid h1,
-    p {
-      text-align: center;
-    }
+  .hero-grid h1,
+  p {
+    text-align: center;
+  }
 
   .hero-grid > * {
     margin-block: 3rem;
@@ -224,19 +176,19 @@ const boothData = await response2.json();
     padding-top: 0.2rem;
   }
 
-    @media (min-width: 1200px) {
-      #saturday h4 {
-        margin-top: 0;
-      }
-      .hero-grid h1,
-      p {
-        text-align: left;
-      }
+  @media (min-width: 1200px) {
+    #saturday h4 {
+      margin-top: 0;
+    }
+    .hero-grid h1,
+    p {
+      text-align: left;
+    }
 
-      .hero-grid h1 {
-        position: absolute;
-        top: 5%;
-      }
+    .hero-grid h1 {
+      position: absolute;
+      top: 5%;
+    }
 
     .hero-grid {
       display: grid;
@@ -245,22 +197,22 @@ const boothData = await response2.json();
       min-height: 90vh;
     }
 
-      .hero-grid p {
-        position: absolute;
-        left: 80%;
-        bottom: 5%;
-        max-width: 80ch;
-      }
+    .hero-grid p {
+      position: absolute;
+      left: 80%;
+      bottom: 5%;
+      max-width: 80ch;
+    }
 
-      .hero-grid video {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        max-width: 55vw;
-      }
+    .hero-grid video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 55vw;
+    }
 
-      /* .hero-video {
+    /* .hero-video {
         max-width: 45vw;
       } */
 
@@ -296,4 +248,3 @@ const boothData = await response2.json();
     }
   }
 </style>
--->
