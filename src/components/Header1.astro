@@ -1,4 +1,5 @@
 ---
+import Countdown from "./Countdown.astro";
 ---
 
 <header>
@@ -43,6 +44,7 @@
     <div class="logo">
       <a href="index.astro" aria-label="Hjem"><img class="logo" src="../icons/logo.svg" alt="logo" /></a>
     </div>
+    <Countdown />
     <ul id="myLinks">
       <li>Schedule</li>
       <li>Booths</li>
@@ -181,8 +183,7 @@
       font-size: var(--menu-links-font-size);
       font-family: heading-font;
       text-transform: uppercase;
-      -webkit-text-stroke: 2px var(--black);
-      color: transparent;
+      color: var(--black);
       cursor: pointer;
       transition: 150ms ease-in-out;
     }
