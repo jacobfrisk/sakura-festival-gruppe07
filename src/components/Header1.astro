@@ -1,0 +1,164 @@
+---
+---
+
+<div class="banner-wrapper">
+  <div class="banner-content">
+    <p>FREE ENTRANCE &#x2022;</p>
+    <p>LANGELINIE PARKEN &#x2022;</p>
+    <p>22/4 - 23/4 &#x2022;</p>
+    <p>11.00 - 16.00 &#x2022;</p>
+    <p>FREE ENTRANCE &#x2022;</p>
+    <p>LANGELINIE PARKEN &#x2022;</p>
+    <p>22/4 - 23/4 &#x2022;</p>
+    <p>11.00 - 16.00 &#x2022;</p>
+    <p>FREE ENTRANCE &#x2022;</p>
+    <p>LANGELINIE PARKEN &#x2022;</p>
+    <p>22/4 - 23/4 &#x2022;</p>
+    <p>11.00 - 16.00 &#x2022;</p>
+    <p>FREE ENTRANCE &#x2022;</p>
+    <p>LANGELINIE PARKEN &#x2022;</p>
+    <p>22/4 - 23/4 &#x2022;</p>
+    <p>11.00 - 16.00 &#x2022;</p>
+    <p>FREE ENTRANCE &#x2022;</p>
+    <p>LANGELINIE PARKEN &#x2022;</p>
+    <p>22/4 - 23/4 &#x2022;</p>
+    <p>11.00 - 16.00 &#x2022;</p>
+    <p>FREE ENTRANCE &#x2022;</p>
+    <p>LANGELINIE PARKEN &#x2022;</p>
+    <p>22/4 - 23/4 &#x2022;</p>
+    <p>11.00 - 16.00 &#x2022;</p>
+    <p>FREE ENTRANCE &#x2022;</p>
+    <p>LANGELINIE PARKEN &#x2022;</p>
+    <p>22/4 - 23/4 &#x2022;</p>
+    <p>11.00 - 16.00 &#x2022;</p>
+    <p>FREE ENTRANCE &#x2022;</p>
+    <p>LANGELINIE PARKEN &#x2022;</p>
+    <p>22/4 - 23/4 &#x2022;</p>
+    <p>11.00 - 16.00 &#x2022;</p>
+  </div>
+</div>
+<header>
+  <div class="topnav">
+    <div class="logo">
+      <a href="index.astro" aria-label="Hjem"><img class="logo" src="../icons/logo.svg" alt="logo" /></a>
+    </div>
+    <ul id="myLinks">
+      <li>Schedule</li>
+      <li>Booths</li>
+      <li>My schedule</li>
+      <li>About Sakura</li>
+    </ul>
+    <button id="burger" aria-controls="primary-navigation" aria-label="Menu" aria-expanded="false">
+      <span class="hamburger" aria-hidden="true"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .banner-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+    margin: auto;
+    background-color: var(--red);
+    padding-block: 0.3rem;
+    color: white;
+  }
+
+  .banner-content {
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: banner-animation 100s linear infinite;
+  }
+
+  .banner-content p {
+    display: inline-block;
+    font-family: "heading-font";
+    font-size: var(--p-font-size);
+  }
+
+  #myLinks.shown {
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+  }
+
+  #myLinks {
+    display: none;
+  }
+
+  #burger {
+    background: transparent;
+    border: none;
+    min-width: 44px;
+    min-height: 44px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+
+  .hamburger {
+    display: block;
+    position: relative;
+  }
+
+  .hamburger::before {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+
+  .hamburger,
+  .hamburger::before,
+  .hamburger::after {
+    width: 1.8em;
+    height: 3px;
+    background: var(--red);
+    margin-top: 8px;
+
+    transition: transform 0.3s cubic-bezier(0, 0.01, 0.24, 1);
+  }
+
+  .hamburger::before {
+    bottom: 8px;
+  }
+
+  .pressed .hamburger {
+    transform: rotate(-45deg);
+  }
+
+  .pressed .hamburger::before {
+    transform: rotate(90deg) translate(8px);
+  }
+</style>
+
+<script>
+  // Lav variablen "btn", der henviser til ".toggle-btn"
+  const btn = document.querySelector("#burger");
+  // Lav variablen "menu", der henviser til ".nav-links"
+  const menu = document.querySelector("#myLinks");
+
+  // Lav funktionen "toggleMenu()" med følgende funktionalitet
+  function toggleMenu() {
+    // a) toggle klassen "shown" på menu vha. classList.toggle
+
+    menu.classList.toggle("shown");
+    btn.classList.toggle("pressed");
+
+    // b) lav variablen "menuShown", som siger, at menu-variablen indeholder klassen "shown" via classList.contains("")
+    const menuShown = menu.classList.contains("shown");
+
+    // c) spørg om "menuShown" i if-sætningen nedenfor (=> if (menuShown)), og udskift teksten
+    if (menuShown) {
+      console.log(menuShown); // se i konsollen
+      // btn.textContent = "Luk"; //hvis menuShown er "true"
+    } else {
+      console.log(menuShown); // se i konsollen
+
+      // btn.textContent = "Menu"; // hvis menuShown er "false"
+    }
+    // "toggleMenu()" slutter her
+  }
+  // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
+  btn.addEventListener("click", toggleMenu);
+</script>
