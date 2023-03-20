@@ -4,6 +4,7 @@ import { Debug } from "astro/components";
 import EventSlot from "../components/EventSlot.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import Layout from "../components/Layout.astro";
+import Sponsor from "../components/Sponsor.astro";
 
 const eventUrl =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -80,6 +81,8 @@ const boothData = await response2.json();
       </div>
     </div>
   </div>
+
+  <Sponsor />
 </Layout>
 
 <style>
@@ -89,6 +92,10 @@ const boothData = await response2.json();
     justify-content: center;
     gap: var(--small);
     text-transform: uppercase;
+  }
+
+  .booths p {
+    font-size: var(--psmall-font-size);
   }
 
   .booth-container {
@@ -102,7 +109,7 @@ const boothData = await response2.json();
   }
   .booth-container h2 {
     text-align: center;
-    margin-bottom: var(--large);
+    margin-bottom: var(--medium);
     color: var(--red);
   }
 
