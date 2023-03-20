@@ -33,7 +33,7 @@ const { event } = Astro.props;
     </ul>
     <div class="flex-space-between">
       <h1>{event.name}</h1>
-      <button>
+      <button class="favorite-button">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" id="favorite-icon"
           ><path
             fill="var(--red)"
@@ -108,19 +108,15 @@ const { event } = Astro.props;
     transform: scale(1);
     transition: opacity 200ms ease-out, transform 200ms;
   }
-  svg {
-    height: auto;
-    /* width: clamp(3.125rem, 2.8216rem + 1.2945vw, 4.375rem); */
-  }
 
   #favorite-icon {
     width: clamp(2.5rem, 2.1966rem + 1.2945vw, 3.75rem);
   }
 
   #favorite-icon:hover path {
-    fill: var(--red);
     d: path("m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z");
   }
+
   button {
     background-color: transparent;
     outline-color: transparent;
@@ -148,6 +144,10 @@ const { event } = Astro.props;
     place-items: center;
     gap: var(--small);
   }
+
+  .fill {
+    d: path("m12 21.35l-1.45-1.32C5.4 15.36 2 12.27 2 8.5C2 5.41 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.08C13.09 3.81 14.76 3 16.5 3C19.58 3 22 5.41 22 8.5c0 3.77-3.4 6.86-8.55 11.53L12 21.35Z");
+  }
 </style>
 
 <script>
@@ -172,5 +172,29 @@ const { event } = Astro.props;
     }
 
     lastScrollPosition = scrollPosition;
+  });
+
+  // Get the SVG path element
+  const heartIcon = document.querySelector("#favorite-icon path");
+
+  // Define a function to toggle the "fill" class of the SVG path
+  function toggleHeart() {
+    heartIcon.classList.toggle("fill");
+  }
+
+  // Add a click event listener to the SVG path element
+  heartIcon.addEventListener("click", toggleHeart);
+  //get the button element
+
+  const favoriteButton = document.querySelector(".favorite-button");
+  const event = {
+    name: document.querySelector("h1").innerText,
+    day: document.querySelector("p:nth-of-type(1)").innerText,
+    location: document.querySelector("p:nth-of-type(2)").innerText,
+    time: document.querySelector("p:nth-of-type(3)").innerText,
+  };
+
+  favoriteButton.addEventListener("click", () => {
+    localStorage.setItem("favoriteEvent", JSON.stringify(event));
   });
 </script>

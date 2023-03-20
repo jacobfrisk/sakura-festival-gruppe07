@@ -8,9 +8,6 @@ import Layout from "../components/Layout.astro";
 const eventUrl =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
 
-const boothUrl =
-  "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Booths?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
-
 const options = {
   headers: {
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To",
@@ -19,68 +16,45 @@ const options = {
 
 const response1 = await fetch(eventUrl, options);
 const eventData = await response1.json();
-
-const response2 = await fetch(boothUrl);
-const boothData = await response2.json();
 ---
 
-<Layout>
-  <div class="main-container">
-    <div class="hero-section">
-      <div class="hero-grid">
-        <h1>Sakura Festival</h1>
-        <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
-        <p>Experience the magic of Japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
-      </div>
+<h4>Recently Viewed Event</h4>
+<p>Event Name: {localStorage.getItem("eventName")}</p>
+<p>Event Time: {localStorage.getItem("eventTime")}</p>
+<p>Event Location: {localStorage.getItem("eventLocation")}</p>
+<p>Event Day: {localStorage.getItem("eventDay")}</p>
+<div class="schedule-container">
+  <div class="schedule-left">
+    <h2 class="schedule-header">My schedule</h2>
+    <div class="btn-container">
+      <ButtonLink variant="primary" size="large" href="#saturday">Saturday</ButtonLink>
+      <ButtonLink variant="primary" size="large" href="#sunday">Sunday</ButtonLink>
     </div>
   </div>
-  <div class="schedule-container">
-    <div class="schedule-left">
-      <h2 class="schedule-header">Schedule</h2>
-      <div class="btn-container">
-        <ButtonLink variant="primary" size="large" href="#saturday">Saturday</ButtonLink>
-        <ButtonLink variant="primary" size="large" href="#sunday">Sunday</ButtonLink>
-      </div>
-    </div>
-    <div class="schedule-right">
-      <div>
-        <section id="saturday">
-          <h4>Saturday</h4>
-          {
-            eventData
-              .sort((a, b) => parseInt(a.time) - parseInt(b.time))
-              .filter((stage) => stage.day === "Saturday")
-              .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
-          }
-        </section>
-        <section id="sunday">
-          <h4>Sunday</h4>
-          {
-            eventData
-              .sort((a, b) => parseInt(a.time) - parseInt(b.time))
-              .filter((stage) => stage.day === "Sunday")
-              .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
-          }
-        </section>
-      </div>
-    </div>
-  </div>
-  <div class="booth-container">
-    <div class="main-container">
-      <h2>Booths</h2>
-      <div class="booths">
+  <div class="schedule-right">
+    <div>
+      <section id="saturday">
+        <h4>Saturday</h4>
         {
-          boothData.map((stage, index) => (
-            <fragment key={stage.id}>
-              <p>{stage.Navn}</p>
-              {index !== boothData.length - 1 && <>&bull;</>}
-            </fragment>
-          ))
+          eventData
+            .sort((a, b) => parseInt(a.time) - parseInt(b.time))
+            .filter((stage) => stage.day === "Saturday")
+            .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
         }
-      </div>
+        <div></div>
+      </section>
+      <section id="sunday">
+        <h4>Sunday</h4>
+        {
+          eventData
+            .sort((a, b) => parseInt(a.time) - parseInt(b.time))
+            .filter((stage) => stage.day === "Sunday")
+            .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
+        }
+      </section>
     </div>
   </div>
-</Layout>
+</div>
 
 <style>
   .booths {
@@ -249,3 +223,10 @@ const boothData = await response2.json();
     }
   }
 </style>
+
+<script>
+  const eventName = localStorage.getItem("eventName");
+  const eventTime = localStorage.getItem("eventTime");
+  const eventLocation = localStorage.getItem("eventLocation");
+  const eventDay = localStorage.getItem("eventDay");
+</script>
