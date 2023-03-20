@@ -28,11 +28,12 @@
     z-index: 1000;
     transition: 150ms ease-in-out;
     width: fit-content;
+    background-color: #f5c7dc;
+    padding: var(--medium);
   }
 
   #iframe iframe {
-    width: 90vw;
-    height: auto;
+    max-width: 90vw;
   }
 
   @media (min-width: 1200px) {
@@ -43,7 +44,8 @@
       transform: translate(-50%, -50%);
       z-index: 1000;
       transition: 150ms ease-in-out;
-      width: fit-content;
+      background-color: transparent;
+      padding: 0;
     }
 
     #iframe iframe {
