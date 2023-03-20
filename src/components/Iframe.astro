@@ -1,0 +1,87 @@
+---
+---
+
+<div id="iframe">
+  <div id="krys"><span>&#10005;</span></div>
+  <iframe
+    width="560"
+    height="315"
+    src="https://www.youtube.com/embed/vZGJPqfaOEA"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen></iframe>
+</div>
+
+<style>
+  .hide {
+    display: none;
+  }
+  .show {
+    display: block;
+  }
+  #iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    transition: 150ms ease-in-out;
+    width: fit-content;
+    background-color: #f5c7dc;
+    padding: var(--medium);
+  }
+
+  #iframe iframe {
+    max-width: 90vw;
+  }
+
+  @media (min-width: 1200px) {
+    #iframe {
+      position: relative;
+      top: 30%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      transition: 150ms ease-in-out;
+      background-color: transparent;
+      padding: 0;
+    }
+
+    #iframe iframe {
+      position: absolute;
+      top: 30%;
+      left: 30%;
+    }
+
+    #iframe #krys {
+      height: 100px;
+      position: absolute;
+      top: 25%;
+      left: 70%;
+      z-index: 1001;
+      color: var(--black);
+      cursor: pointer;
+    }
+  }
+</style>
+
+<script>
+  window.addEventListener("load", function () {
+    console.log("loader");
+    document.querySelector("#iframe").classList.add("hide");
+    document.querySelector("video").addEventListener("click", aabneIframe);
+  });
+
+  function aabneIframe() {
+    console.log("klikket");
+    document.querySelector("#iframe").classList.remove("hide");
+
+    document.querySelector("#krys").addEventListener("click", lukkeIframe);
+  }
+
+  function lukkeIframe() {
+    document.querySelector("#iframe").classList.add("hide");
+    document.querySelector("video").addEventListener("click", aabneIframe);
+  }
+</script>
