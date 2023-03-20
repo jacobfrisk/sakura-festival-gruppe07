@@ -5,6 +5,7 @@ import EventSlot from "../components/EventSlot.astro";
 import ButtonLink from "../components/ButtonLink.astro";
 import Layout from "../components/Layout.astro";
 import Sponsor from "../components/Sponsor.astro";
+import Iframe from "../components/Iframe.astro";
 
 const eventUrl =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Events?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -32,6 +33,7 @@ const boothData = await response2.json();
         <h1>Sakura Festival</h1>
         <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
         <p>Experience the magic of Japan's cherry blossoms at Sakura Festival - a spectacular celebration of nature and culture you can't miss!</p>
+        <Iframe />
       </div>
     </div>
   </div>
@@ -217,6 +219,7 @@ const boothData = await response2.json();
       left: 50%;
       transform: translate(-50%, -50%);
       max-width: 55vw;
+      cursor: pointer;
     }
 
     /* .hero-video {
