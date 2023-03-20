@@ -5,6 +5,7 @@ import { Debug } from "astro/components";
 import Filternav from "../components/Filternav.astro";
 import Footer from "../components/Footer.astro";
 import Map from "../components/Map.astro";
+import Layout from "../components/Layout.astro";
 
 const url =
   "https://fyoibrnkhfthmeiffltn.supabase.co/rest/v1/Booths?apikey=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ5b2licm5raGZ0aG1laWZmbHRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Nzg3ODAxNDAsImV4cCI6MTk5NDM1NjE0MH0.N4_YxpgdHxnVlLKlbxyFb2MT2AM-4wqZt0LIP3E31To";
@@ -28,88 +29,84 @@ const data = await response.json();
     <title>Astro</title>
   </head>
 
-  <details>
-    <summary>Debugger</summary>
-    <Debug {data} />
-  </details>
-  <header></header>
-  <main>
-    <Filternav />
+  <Layout>
+    <main>
+      <Filternav />
 
-    <div class="booths_text">
-      {
-        data.map((stage) => {
-          return (
-            <article class={stage.Kategori}>
-              <h3>{stage.Navn}</h3>
-              <p>{stage.Beskrivelse}</p>
-            </article>
-          );
-        })
-      }
-      <hr class="hr2" />
-    </div>
-    <div class="map">
-      <img src="./img/map.webp" class="map_overblik" alt="Map overview" />
-
-      <div class="info_pad">
-        <div class="booths_places">
-          <div class="booths_places1">
-            <div class="navi_map">
-              <img src="./img/stand-a.webp" alt="Stand A" />
-              <p>Main stage</p>
-            </div>
-            <div class="navi_map">
-              <img src="./img/stand-b.webp" alt="Stand B" />
-              <p>Second stage</p>
-            </div>
-            <div class="navi_map">
-              <img src="./img/stand-c.webp" alt="On the lawn" />
-              <p>On the lawn stage</p>
-            </div>
-            <div class="navi_map">
-              <img src="./img/toilet.webp" alt="Bathroom" />
-              <p>Bathroom</p>
-            </div>
-            <div class="navi_map">
-              <img src="./img/info.webp" alt="Information" />
-              <p>Information</p>
-            </div>
-          </div>
-          <div class="booths_places2">
-            <div class="navi_map">
-              <span class="dot1"></span>
-              <p>Booths 1 - 5</p>
-            </div>
-            <div class="navi_map">
-              <span class="dot2"></span>
-              <p>Booths 6 - 11</p>
-            </div>
-            <div class="navi_map">
-              <span class="dot3"></span>
-              <p>Booths 12 - 20</p>
-            </div>
-            <div class="navi_map">
-              <span class="dot4"></span>
-              <p>Booths 21 - 26</p>
-            </div>
-            <div class="navi_map">
-              <span class="dot5"></span>
-              <p>Booths 27, 28, 33 - 35</p>
-            </div>
-            <div class="navi_map">
-              <span class="dot6"></span>
-              <p>Booths 30, 32, 36</p>
-            </div>
-          </div>
-        </div>
-        <hr class="hr3" />
-
-        <div class="steder"></div>
+      <div class="booths_text">
+        {
+          data.map((stage) => {
+            return (
+              <article class={stage.Kategori}>
+                <h3>{stage.Navn}</h3>
+                <p>{stage.Beskrivelse}</p>
+              </article>
+            );
+          })
+        }
+        <hr class="hr2" />
       </div>
-      <Map />
-    </div>
-    <!-- <h1 class="h1_booths">Booths</h1>
+      <div class="map">
+        <img src="./img/map.webp" class="map_overblik" alt="Map overview" />
+
+        <div class="info_pad">
+          <div class="booths_places">
+            <div class="booths_places1">
+              <div class="navi_map">
+                <img src="./img/stand-a.webp" alt="Stand A" />
+                <p>Main stage</p>
+              </div>
+              <div class="navi_map">
+                <img src="./img/stand-b.webp" alt="Stand B" />
+                <p>Second stage</p>
+              </div>
+              <div class="navi_map">
+                <img src="./img/stand-c.webp" alt="On the lawn" />
+                <p>On the lawn stage</p>
+              </div>
+              <div class="navi_map">
+                <img src="./img/toilet.webp" alt="Bathroom" />
+                <p>Bathroom</p>
+              </div>
+              <div class="navi_map">
+                <img src="./img/info.webp" alt="Information" />
+                <p>Information</p>
+              </div>
+            </div>
+            <div class="booths_places2">
+              <div class="navi_map">
+                <span class="dot1"></span>
+                <p>Booths 1 - 5</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot2"></span>
+                <p>Booths 6 - 11</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot3"></span>
+                <p>Booths 12 - 20</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot4"></span>
+                <p>Booths 21 - 26</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot5"></span>
+                <p>Booths 27, 28, 33 - 35</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot6"></span>
+                <p>Booths 30, 32, 36</p>
+              </div>
+            </div>
+          </div>
+          <hr class="hr3" />
+
+          <div class="steder"></div>
+        </div>
+        <Map />
+      </div>
+      <!-- <h1 class="h1_booths">Booths</h1>
     <p class="booths_p">Selfish <em class="dot"> •</em> Banzai <em class="dot"> •</em> Saito <em class="dot"> •</em> Sushi Shop</p>
     <br />
     <p class="booths_p">Sticks'n'Sushi <em class="dot"> •</em>Mochi Time CPH <em class="dot"> •</em> Enghave Motor <em class="dot"> •</em> De Japanske Haver <em class="dot"> •</em> NIWA <em class="dot"> •</em> Wazakka Tento-ya</p>
@@ -132,8 +129,8 @@ const data = await response.json();
     <p class="booths_p">Koibi <em class="dot"> •</em> Faraos Cigarer <em class="dot"> •</em> Idrætshøjskolen Bosei</p>
 
     <h1 class="h1_booths">Map</h1> -->
-  </main>
-  <footer><Footer /></footer>
+    </main>
+  </Layout>
 
   <style>
     .info_pad {
@@ -277,6 +274,4 @@ const data = await response.json();
       }
     }
   </style>
-
-
 </html>
