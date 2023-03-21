@@ -31,6 +31,8 @@ const boothData = await response2.json();
     <div class="hero-grid">
       <h1>Sakura Festival</h1>
       <video class="hero-video" playsinline autoplay muted loop src="/video/hero-video.webm"></video>
+      <img src="./img/aftermovie2.webp" class="aftermovie" alt="Aftermovie video" />
+      <img src="./img/playbutton.webp" class="playbutton" alt="Play Button" />
       <p><strong>Experience the magic of Japan's cherry blossoms at Sakura Festival</strong><br /> - a spectacular celebration of nature and culture you can't miss!</p>
       <Iframe />
     </div>
@@ -85,6 +87,14 @@ const boothData = await response2.json();
 </Layout>
 
 <style>
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
   .schedule-right {
     background-color: var(--white);
   }
@@ -190,6 +200,45 @@ const boothData = await response2.json();
   #sunday p,
   #saturday p {
     padding-top: 0.2rem;
+  }
+
+  @media (min-width: 1200px) {
+    .aftermovie {
+      position: relative;
+      top: 38vh;
+      left: 18vw;
+      width: 17vw;
+      animation: spin 10s linear infinite;
+      pointer-events: none;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .aftermovie {
+      position: relative;
+      top: -18em;
+      left: 12vw;
+      width: 20vw;
+      animation: spin 10s linear infinite;
+      pointer-events: none;
+    }
+  }
+
+  @media (max-width: 1000px) {
+    .aftermovie {
+      position: relative;
+      top: -14em;
+      left: 8vw;
+      width: 20vw;
+      animation: spin 10s linear infinite;
+      pointer-events: none;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .aftermovie {
+      display: none;
+    }
   }
 
   @media (min-width: 1200px) {

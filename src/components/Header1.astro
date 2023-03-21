@@ -70,6 +70,12 @@ import Countdown from "./Countdown.astro";
   </div>
 
   <style>
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5000;
+    }
+
     .banner-wrapper {
       max-width: 100%;
       overflow: hidden;
@@ -84,6 +90,7 @@ import Countdown from "./Countdown.astro";
       overflow: hidden;
       display: inline-block;
       animation: banner-animation 100s linear infinite;
+      letter-spacing: 0.9px;
     }
 
     .banner-content p {
@@ -234,5 +241,13 @@ import Countdown from "./Countdown.astro";
 
     // Tilføj et klik-event til "btn", der sætter toggleMenu-funktionen i gang
     btn.addEventListener("click", toggleMenu);
+
+    /**_ */
+    var logo = document.querySelector(".logo");
+
+    window.addEventListener("scroll", function () {
+      var rotation = window.pageYOffset / 12;
+      logo.setAttribute("style", "transform: rotate(" + rotation + "deg)");
+    });
   </script>
 </header>
