@@ -19,94 +19,85 @@ const response = await fetch(url, options);
 const data = await response.json();
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
-  </head>
+<Layout>
+  <main>
+    <div class="main-container">
+      <Filternav />
 
-  <Layout>
-    <main>
-      <div class="main-container">
-        <Filternav />
+      <div class="booths_text">
+        {
+          data.map((stage) => {
+            return (
+              <article class={stage.Kategori}>
+                <h3>{stage.Navn}</h3>
+                <p>{stage.Beskrivelse}</p>
+              </article>
+            );
+          })
+        }
+        <hr class="hr2" />
+      </div>
+      <div class="map">
+        <img src="/img/map.webp" class="map_overblik" alt="Map overview" />
 
-        <div class="booths_text">
-          {
-            data.map((stage) => {
-              return (
-                <article class={stage.Kategori}>
-                  <h3>{stage.Navn}</h3>
-                  <p>{stage.Beskrivelse}</p>
-                </article>
-              );
-            })
-          }
-          <hr class="hr2" />
-        </div>
-        <div class="map">
-          <img src="/img/map.webp" class="map_overblik" alt="Map overview" />
-
-          <div class="info_pad">
-            <div class="booths_places">
-              <div class="booths_places1">
-                <div class="navi_map">
-                  <img src="/img/stand-a.webp" alt="Stand A" />
-                  <p>Main stage</p>
-                </div>
-                <div class="navi_map">
-                  <img src="/img/stand-b.webp" alt="Stand B" />
-                  <p>Second stage</p>
-                </div>
-                <div class="navi_map">
-                  <img src="/img/stand-c.webp" alt="On the lawn" />
-                  <p>On the lawn stage</p>
-                </div>
-                <div class="navi_map">
-                  <img src="/img/toilet.webp" alt="Bathroom" />
-                  <p>Bathroom</p>
-                </div>
-                <div class="navi_map">
-                  <img src="/img/info.webp" alt="Information" />
-                  <p>Information</p>
-                </div>
+        <div class="info_pad">
+          <div class="booths_places">
+            <div class="booths_places1">
+              <div class="navi_map">
+                <img src="/img/stand-a.webp" alt="Stand A" />
+                <p>Main stage</p>
               </div>
-              <div class="booths_places2">
-                <div class="navi_map">
-                  <span class="dot1"></span>
-                  <p>Booths 1 - 5</p>
-                </div>
-                <div class="navi_map">
-                  <span class="dot2"></span>
-                  <p>Booths 6 - 11</p>
-                </div>
-                <div class="navi_map">
-                  <span class="dot3"></span>
-                  <p>Booths 12 - 20</p>
-                </div>
-                <div class="navi_map">
-                  <span class="dot4"></span>
-                  <p>Booths 21 - 26</p>
-                </div>
-                <div class="navi_map">
-                  <span class="dot5"></span>
-                  <p>Booths 27, 28, 33 - 35</p>
-                </div>
-                <div class="navi_map">
-                  <span class="dot6"></span>
-                  <p>Booths 30, 32, 36</p>
-                </div>
+              <div class="navi_map">
+                <img src="/img/stand-b.webp" alt="Stand B" />
+                <p>Second stage</p>
+              </div>
+              <div class="navi_map">
+                <img src="/img/stand-c.webp" alt="On the lawn" />
+                <p>On the lawn stage</p>
+              </div>
+              <div class="navi_map">
+                <img src="/img/toilet.webp" alt="Bathroom" />
+                <p>Bathroom</p>
+              </div>
+              <div class="navi_map">
+                <img src="/img/info.webp" alt="Information" />
+                <p>Information</p>
               </div>
             </div>
-            <hr class="hr3" />
-
-            <div class="steder"></div>
+            <div class="booths_places2">
+              <div class="navi_map">
+                <span class="dot1"></span>
+                <p>Booths 1 - 5</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot2"></span>
+                <p>Booths 6 - 11</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot3"></span>
+                <p>Booths 12 - 20</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot4"></span>
+                <p>Booths 21 - 26</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot5"></span>
+                <p>Booths 27, 28, 33 - 35</p>
+              </div>
+              <div class="navi_map">
+                <span class="dot6"></span>
+                <p>Booths 30, 32, 36</p>
+              </div>
+            </div>
           </div>
-          <Map />
+          <hr class="hr3" />
+
+          <div class="steder"></div>
         </div>
-        <!-- <h1 class="h1_booths">Booths</h1>
+        <Map />
+      </div>
+      <!-- <h1 class="h1_booths">Booths</h1>
     <p class="booths_p">Selfish <em class="dot"> •</em> Banzai <em class="dot"> •</em> Saito <em class="dot"> •</em> Sushi Shop</p>
     <br />
     <p class="booths_p">Sticks'n'Sushi <em class="dot"> •</em>Mochi Time CPH <em class="dot"> •</em> Enghave Motor <em class="dot"> •</em> De Japanske Haver <em class="dot"> •</em> NIWA <em class="dot"> •</em> Wazakka Tento-ya</p>
@@ -129,146 +120,145 @@ const data = await response.json();
     <p class="booths_p">Koibi <em class="dot"> •</em> Faraos Cigarer <em class="dot"> •</em> Idrætshøjskolen Bosei</p>
 
     <h1 class="h1_booths">Map</h1> -->
-      </div>
-    </main>
-  </Layout>
+    </div>
+  </main>
+</Layout>
 
-  <style>
-    .info_pad {
-      padding-left: 1rem;
+<style>
+  .info_pad {
+    padding-left: 1rem;
+  }
+
+  .booths_places {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid: 1em;
+  }
+  .navi_map {
+    display: flex;
+    gap: var(--extra-small);
+    margin-top: var(--extra-small);
+    place-items: center;
+  }
+
+  .navi_map img {
+    max-width: 12%;
+  }
+
+  .map img {
+    width: 90%;
+  }
+
+  .hide {
+    display: none;
+  }
+
+  h3 {
+    color: var(--black);
+  }
+
+  article {
+    padding: 0 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .booths_text {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    margin-bottom: 2rem;
+  }
+  hr {
+    margin: 1.5rem 0 1.5rem 0;
+  }
+
+  .hr2 {
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    border-left: 0.1px solid var(--red);
+  }
+
+  .dot1 {
+    height: 20px;
+    width: 20px;
+    background-color: #faec73;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot2 {
+    height: 20px;
+    width: 20px;
+    background-color: #fa5aa2;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot3 {
+    height: 20px;
+    width: 20px;
+    background-color: #41defa;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot4 {
+    height: 20px;
+    width: 20px;
+    background-color: #23ad51;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .dot5 {
+    height: 20px;
+    width: 20px;
+    background-color: #ff0000;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .dot6 {
+    height: 20px;
+    width: 20px;
+    background-color: #3834fa;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  @media (min-width: 1200px) {
+    .map {
+      display: grid;
+      grid-template-columns: 2fr 0.5fr 1fr;
+      margin-right: 1rem;
+      padding-top: 1.5rem;
     }
 
     .booths_places {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid: 1em;
-    }
-    .navi_map {
-      display: flex;
-      gap: var(--extra-small);
-      margin-top: var(--extra-small);
-      place-items: center;
+      grid-template-columns: 1fr;
     }
 
-    .navi_map img {
-      max-width: 12%;
-    }
-
-    .map img {
-      width: 90%;
-    }
-
-    .hide {
+    .hr3 {
       display: none;
     }
 
-    h3 {
-      color: var(--black);
+    article {
+      margin-inline: auto;
     }
 
-    article {
-      padding: 0 1rem;
-      padding-bottom: 1rem;
+    img {
+      max-width: 90%;
     }
 
     .booths_text {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      position: relative;
-      margin-bottom: 2rem;
-    }
-    hr {
-      margin: 1.5rem 0 1.5rem 0;
+      text-align: center;
     }
 
-    .hr2 {
-      width: 1px;
-      height: 100%;
-      position: absolute;
-      top: -25px;
-      left: 50%;
-      border-left: 0.1px solid var(--red);
+    .info_pad {
+      padding-left: 0;
     }
-
-    .dot1 {
-      height: 20px;
-      width: 20px;
-      background-color: #faec73;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .dot2 {
-      height: 20px;
-      width: 20px;
-      background-color: #fa5aa2;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .dot3 {
-      height: 20px;
-      width: 20px;
-      background-color: #41defa;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .dot4 {
-      height: 20px;
-      width: 20px;
-      background-color: #23ad51;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .dot5 {
-      height: 20px;
-      width: 20px;
-      background-color: #ff0000;
-      border-radius: 50%;
-      display: inline-block;
-    }
-    .dot6 {
-      height: 20px;
-      width: 20px;
-      background-color: #3834fa;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    @media (min-width: 1200px) {
-      .map {
-        display: grid;
-        grid-template-columns: 2fr 0.5fr 1fr;
-        margin-right: 1rem;
-        padding-top: 1.5rem;
-      }
-
-      .booths_places {
-        display: grid;
-        grid-template-columns: 1fr;
-      }
-
-      .hr3 {
-        display: none;
-      }
-
-      article {
-        margin-inline: auto;
-      }
-
-      img {
-        max-width: 90%;
-      }
-
-      .booths_text {
-        text-align: center;
-      }
-
-      .info_pad {
-        padding-left: 0;
-      }
-    }
-  </style>
-</html>
+  }
+</style>
