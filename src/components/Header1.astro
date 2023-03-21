@@ -218,17 +218,16 @@ import Countdown from "./Countdown.astro";
     // Lav variablen "menu", der henviser til ".nav-links"
     const menu = document.querySelector("#myLinks");
 
-    // Lav funktionen "toggleMenu()" med følgende funktionalitet
     function toggleMenu() {
       menu.classList.toggle("shown");
       btn.classList.toggle("pressed");
 
       const menuShown = menu.classList.contains("shown");
       if (menuShown) {
-        document.body.style.overflow = "hidden";
+        document.body.style.overflowY = "hidden";
         console.log(menuShown);
       } else {
-        document.body.style.overflow = "auto";
+        document.body.style.overflowY = "auto";
         console.log(menuShown);
       }
     }
