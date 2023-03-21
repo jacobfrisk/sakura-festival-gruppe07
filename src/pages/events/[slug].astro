@@ -1,6 +1,6 @@
 ---
 import Layout from "../../components/Layout.astro";
-import "./src/styles/style.css";
+import "./styles/style.css";
 
 export async function getStaticPaths() {
   const url =
@@ -156,7 +156,7 @@ const { event } = Astro.props;
   }
 </style>
 
-<!-- <script>
+<script>
   const element = document.querySelector(".event-img");
   let lastScrollPosition = 0;
 
@@ -190,4 +190,4 @@ const { event } = Astro.props;
 
   // Add a click event listener to the SVG path element
   heartIcon.addEventListener("click", toggleHeart);
-</script> -->
+</script>
