@@ -53,7 +53,7 @@ const boothData = await response2.json();
             eventData
               .sort((a, b) => parseInt(a.time) - parseInt(b.time))
               .filter((stage) => stage.day === "Saturday")
-              .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
+              .map((stage) => <EventSlot link={stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
           }
         </section>
         <section id="sunday">
@@ -62,7 +62,7 @@ const boothData = await response2.json();
             eventData
               .sort((a, b) => parseInt(a.time) - parseInt(b.time))
               .filter((stage) => stage.day === "Sunday")
-              .map((stage) => <EventSlot link={"events/" + stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
+              .map((stage) => <EventSlot link={stage.id} header={stage.name} location={stage.location} time={stage.time} day={stage.day} image={stage.picture} />)
           }
         </section>
       </div>
