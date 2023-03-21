@@ -151,6 +151,9 @@ data
 </Layout>
 
 <style>
+  hr {
+    margin-top: var(--small);
+  }
   .header-flex {
     display: flex;
     justify-content: space-around;
@@ -161,7 +164,7 @@ data
     text-align: center;
   }
   .event_info > * {
-    margin-bottom: var(--small);
+    /* margin-bottom: var(--small); */
   }
 
   .btn {
@@ -174,13 +177,13 @@ data
   }
 
   .event_info {
-    margin-bottom: var(--extra-small);
+    /* margin-bottom: var(--extra-small); */
   }
 
   article {
     display: flex;
     flex-direction: column;
-    height: fit-content;
+    min-height: 400px;
   }
 
   article > *:not(img) {
@@ -245,10 +248,12 @@ data
     }
 
     .stage_column {
-      display: flex;
-      flex-wrap: wrap;
+      /* display: flex; */
+      /* flex-wrap: wrap; */
       gap: var(--small);
       position: relative;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
     }
 
     article.astro-XJQXVEZ7 {
@@ -256,7 +261,8 @@ data
       margin: var(--medium) 0;
       max-width: 60vw;
       border-radius: 10px;
-      flex-basis: calc(50% - 10px);
+      /* flex-basis: calc(50% - 10px); */
+      /* flex-basis: 50%; */
     }
 
     article img {
