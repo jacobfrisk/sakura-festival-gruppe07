@@ -1,10 +1,9 @@
 ---
 import "../styles/style.css";
-import Stages from "./Stages.astro";
 const { variant, size } = Astro.props;
 ---
 
-<a class={variant + " " + size} href={`schedule/${Astro.props.href}`}><slot /></a>
+<a class={variant + " " + size} href={Astro.props.href}><slot /></a>
 
 <style>
   .primary {
