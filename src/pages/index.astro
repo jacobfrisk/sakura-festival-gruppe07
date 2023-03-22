@@ -31,7 +31,9 @@ const boothData = await response2.json();
     <div class="hero-grid">
       <h1>Sakura Festival</h1>
       <img src="./img/aftermovie2.webp" class="aftermovie" alt="Aftermovie video" />
-      <video class="hero-video" playsinline autoplay muted loop src="https://www.jacobstrand.dk/videos/hero-video.webm"></video>
+      <div class="video-mask">
+        <video class="hero-video" playsinline autoplay muted loop src="https://www.jacobstrand.dk/videos/hero-video.webm"></video>
+      </div>
       <p><strong>Experience the magic of Japan's cherry blossoms at Sakura Festival</strong><br /> - a spectacular celebration of nature and culture you can't miss!</p>
       <Iframe />
     </div>
@@ -132,7 +134,7 @@ const boothData = await response2.json();
   .booth-container h4 {
     font-family: "body-font";
   }
-  .hero-video {
+  .video-mask {
     mask: url("./img/svg-video-mask.svg") no-repeat center / contain;
     -webkit-mask: url("./img/svg-video-mask.svg") no-repeat center / contain;
   }
@@ -209,6 +211,7 @@ const boothData = await response2.json();
       width: 17vw;
       animation: spin 10s linear infinite;
       pointer-events: none;
+      z-index: 1000;
     }
   }
 
@@ -273,13 +276,16 @@ const boothData = await response2.json();
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 62vw;
+
       cursor: pointer;
     }
 
-    /* .hero-video {
-        max-width: 45vw;
-      } */
+    .video-mask {
+      min-width: 62vw;
+    }
+
+    .hero-video {
+    }
 
     .btn-container {
       flex-direction: column;
