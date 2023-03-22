@@ -1,9 +1,10 @@
 ---
 import "../styles/style.css";
-const { variant, size } = Astro.props;
+const { variant, size, href } = Astro.props;
+console.log(href);
 ---
 
-<a class={variant + " " + size} href={Astro.props.href}><slot /></a>
+<a class={variant + " " + size} href={href}><slot /></a>
 
 <style>
   .primary {
