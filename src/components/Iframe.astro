@@ -80,4 +80,10 @@
     document.querySelector("#iframe").classList.add("hide");
     document.querySelector("video").addEventListener("click", aabneIframe);
   }
+
+  window.onload = function () {
+    var iframe = document.createElement("#iframe") as HTMLIFrameElement;
+    iframe.src = "https://www.youtube.com/embed/vZGJPqfaOEA";
+    document.body.appendChild(iframe);
+  };
 </script>
