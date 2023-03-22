@@ -158,8 +158,7 @@ const boothData = await response2.json();
     background-color: var(--pink);
     padding-block: var(--small);
     position: sticky;
-    top: 0;
-
+    top: 150px;
     color: var(--red);
     display: grid;
     gap: 1rem;
@@ -245,6 +244,12 @@ const boothData = await response2.json();
     }
   }
 
+  @media (min-width: 1900px) {
+    .aftermovie {
+      display: none;
+    }
+  }
+
   @media (min-width: 1200px) {
     #saturday h4 {
       margin-top: 0;
@@ -318,6 +323,7 @@ const boothData = await response2.json();
       align-items: center;
       flex-direction: column;
       gap: var(--large);
+      top: 0;
     }
   }
 </style>
