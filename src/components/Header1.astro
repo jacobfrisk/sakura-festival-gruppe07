@@ -42,7 +42,7 @@ import Countdown from "./Countdown.astro";
 
   <div class="topnav">
     <div class="logo">
-      <a href="/" aria-label="Hjem"><img class="logo" src="../../icons/logo.svg" alt="logo" /></a>
+      <a href="/" aria-label="Hjem"><img class="logo" src="../icons/logo.svg" alt="logo" /></a>
     </div>
     <Countdown />
     <ul id="myLinks">
@@ -77,13 +77,6 @@ import Countdown from "./Countdown.astro";
     }
 
     @media (max-width: 1200px) {
-      .fixed {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
     }
 
     .banner-wrapper {
@@ -258,31 +251,6 @@ import Countdown from "./Countdown.astro";
     window.addEventListener("scroll", function () {
       var rotation = window.pageYOffset / 12;
       logo.setAttribute("style", "transform: rotate(" + rotation + "deg)");
-    });
-
-    const header = document.querySelector("header");
-    const targetElement = document.querySelector(".schedule-left");
-    let isHeaderFixed = false;
-    const headerHeight = header.offsetHeight;
-
-    window.addEventListener("scroll", () => {
-      const targetRect = targetElement.getBoundingClientRect();
-      const targetTop = targetRect.top + window.pageYOffset;
-      const breakpoint = targetTop - headerHeight; // adjust this value as needed
-
-      if (window.pageYOffset >= breakpoint) {
-        if (!isHeaderFixed) {
-          isHeaderFixed = true;
-          header.classList.add("fixed");
-          targetElement.style.paddingTop = `${headerHeight}px`;
-        }
-      } else {
-        if (isHeaderFixed) {
-          isHeaderFixed = false;
-          header.classList.remove("fixed");
-          targetElement.style.paddingTop = "";
-        }
-      }
     });
   </script>
 </header>
