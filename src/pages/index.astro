@@ -31,9 +31,7 @@ const boothData = await response2.json();
     <div class="hero-grid">
       <h1>Sakura Festival</h1>
       <img src="./img/aftermovie2.webp" class="aftermovie" alt="Aftermovie video" />
-      <div class="video-mask">
-        <video class="hero-video" playsinline autoplay muted loop src="https://www.jacobstrand.dk/videos/hero-video.webm"></video>
-      </div>
+      <video class="hero-video" playsinline autoplay muted loop src="https://www.jacobstrand.dk/videos/hero-video.webm"></video>
       <p><strong>Experience the magic of Japan's cherry blossoms at Sakura Festival</strong><br /> - a spectacular celebration of nature and culture you can't miss!</p>
       <Iframe />
     </div>
@@ -137,6 +135,7 @@ const boothData = await response2.json();
   .hero-video {
     mask: url("../svgmask.svg") no-repeat center / contain;
     -webkit-mask: url("../svgmask.svg") no-repeat center / contain;
+    max-width: 62vw;
   }
 
   .hero-grid h1,
