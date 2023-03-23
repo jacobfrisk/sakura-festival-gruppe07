@@ -133,8 +133,9 @@ const boothData = await response2.json();
     font-family: "body-font";
   }
   .hero-video {
-    mask: url("img/svg-video-mask.svg") no-repeat center / contain;
-    -webkit-mask: url("img/svg-video-mask.svg") no-repeat center / contain;
+    mask: url("../svgmask.svg") no-repeat center / contain;
+    -webkit-mask: url("../svgmask.svg") no-repeat center / contain;
+    max-width: 62vw;
   }
 
   .hero-grid h1,
@@ -156,8 +157,7 @@ const boothData = await response2.json();
     background-color: var(--pink);
     padding-block: var(--small);
     position: sticky;
-    top: 0;
-
+    top: 44px;
     color: var(--red);
     display: grid;
     gap: 1rem;
@@ -209,32 +209,41 @@ const boothData = await response2.json();
       width: 17vw;
       animation: spin 10s linear infinite;
       pointer-events: none;
+      z-index: 1;
     }
   }
 
   @media (max-width: 1200px) {
     .aftermovie {
       position: relative;
-      top: -18em;
+      top: 38rem;
       left: 12vw;
       width: 20vw;
       animation: spin 10s linear infinite;
       pointer-events: none;
+      z-index: 1;
     }
   }
 
   @media (max-width: 1000px) {
     .aftermovie {
       position: relative;
-      top: -14em;
+      top: 30rem;
       left: 8vw;
       width: 20vw;
       animation: spin 10s linear infinite;
       pointer-events: none;
+      z-index: 1;
     }
   }
 
   @media (max-width: 800px) {
+    .aftermovie {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1900px) {
     .aftermovie {
       display: none;
     }
@@ -273,13 +282,16 @@ const boothData = await response2.json();
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      max-width: 62vw;
+
       cursor: pointer;
     }
 
-    /* .hero-video {
-        max-width: 45vw;
-      } */
+    .video-mask {
+      min-width: 62vw;
+    }
+
+    .hero-video {
+    }
 
     .btn-container {
       flex-direction: column;
@@ -310,6 +322,7 @@ const boothData = await response2.json();
       align-items: center;
       flex-direction: column;
       gap: var(--large);
+      top: 0;
     }
   }
 </style>

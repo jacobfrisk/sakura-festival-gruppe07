@@ -42,7 +42,7 @@ import Countdown from "./Countdown.astro";
 
   <div class="topnav">
     <div class="logo">
-      <a href="/" aria-label="Hjem"><img class="logo" src="../icons/logo.svg" alt="logo" /></a>
+      <a href="/" aria-label="Hjem"><img class="logo" src="../../icons/logo.svg" alt="logo" /></a>
     </div>
     <Countdown />
     <ul id="myLinks">
@@ -78,11 +78,9 @@ import Countdown from "./Countdown.astro";
 
     @media (max-width: 1200px) {
       header {
-        position: sticky;
-        bottom: 100px;
+        top: 0px;
       }
     }
-
     .banner-wrapper {
       max-width: 100%;
       overflow: hidden;
@@ -179,7 +177,7 @@ import Countdown from "./Countdown.astro";
 
     img.logo.astro-5NRTTP2S {
       width: clamp(3.25rem, 2.6432rem + 2.589vw, 5.75rem);
-      z-index: 999;
+      z-index: 1000;
       position: relative;
     }
 
@@ -255,6 +253,17 @@ import Countdown from "./Countdown.astro";
     window.addEventListener("scroll", function () {
       var rotation = window.pageYOffset / 12;
       logo.setAttribute("style", "transform: rotate(" + rotation + "deg)");
+    });
+
+    const header = document.querySelector("header");
+    const breakpoint = 400; // adjust this value as needed
+
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset >= breakpoint) {
+        header.classList.add("fixed");
+      } else {
+        header.classList.remove("fixed");
+      }
     });
   </script>
 </header>

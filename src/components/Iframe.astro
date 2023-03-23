@@ -3,14 +3,7 @@
 
 <div id="iframe">
   <div id="krys"><span>&#10005;</span></div>
-  <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/vZGJPqfaOEA"
-    title="YouTube video player"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-    allowfullscreen></iframe>
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/vZGJPqfaOEA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 
 <style>
@@ -87,4 +80,10 @@
     document.querySelector("#iframe").classList.add("hide");
     document.querySelector("video").addEventListener("click", aabneIframe);
   }
+
+  window.onload = function () {
+    var iframe = document.createElement("#iframe") as HTMLIFrameElement;
+    iframe.src = "https://www.youtube.com/embed/vZGJPqfaOEA";
+    document.body.appendChild(iframe);
+  };
 </script>
